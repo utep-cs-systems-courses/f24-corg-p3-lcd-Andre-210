@@ -6,6 +6,7 @@
 
 #include "lcdutils.h"
 #include "lcddraw.h"
+#include "song_images.h"
 
 void next_state(int state) {
   leds_off();
@@ -15,7 +16,8 @@ void next_state(int state) {
     led_flash(3);
     leds_off();
     red_led_on();
-    clearScreen(COLOR_RED);
+    // clearScreen(COLOR_RED);
+    //drawFurEliseImage();
     fur_Elise();
     //main();
     //buzzer_set_period(1000);
@@ -25,7 +27,8 @@ void next_state(int state) {
     led_flash(3);
     leds_off();
     red_led_on();
-    clearScreen(COLOR_ORANGE);
+    //clearScreen(COLOR_ORANGE);
+    drawHappyBdayImage();
     happy_Bday();
     //buzzer_set_period(1000);
     leds_off();
@@ -34,7 +37,8 @@ void next_state(int state) {
     led_flash(3);
     leds_off();
     red_led_on();
-    clearScreen(COLOR_BROWN);
+    //clearScreen(COLOR_BROWN);
+    drawMarioImage();
     Mario(); // CHRISTMAS NOT MARIO
     //buzzer_set_period(1000);
     leds_off();
@@ -43,7 +47,8 @@ void next_state(int state) {
     led_flash(3);
     leds_off();
     red_led_on();
-    clearScreen(COLOR_GREEN);
+    //clearScreen(COLOR_GREEN);
+    drawRunaweyImage();
     runawey();
     //buzzer_set_period(1000);
     leds_off();

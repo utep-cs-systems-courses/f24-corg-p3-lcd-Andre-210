@@ -24,11 +24,12 @@ all: main.elf libLcd.a
 
 #additional rules for files
 
-libLcd.a: font-11x16.o font-5x7.o font-8x12.o lcdutils.o lcddraw.o
+libLcd.a: font-11x16.o font-5x7.o font-8x12.o lcdutils.o lcddraw.o song_images.o
 	$(AR) crs $@ $^
 
 lcddraw.o: lcddraw.c lcddraw.h lcdutils.h
 lcdutils.o: lcdutils.c lcdutils.h
+song_images.o: song_images.c song_images.h lcddraw.c lcddraw.o lcdutils.c lcdutils.h
 
 install: libLcd.a
 	mkdir -p ../h ../lib
