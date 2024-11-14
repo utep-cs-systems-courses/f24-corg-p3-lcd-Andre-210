@@ -59,4 +59,5 @@ void led_flash(int n) {
     P1OUT |= LED_RED;                   // turn the green led on
     __delay_cycles(1500000);            // delay
   }
+  leds_off();                           // turn off the leds
 }
