@@ -15,7 +15,7 @@ void next_state(int state) {
     led_flash(3);
     leds_off();
     red_led_on();
-    clearScreen(COLOR_BLUE);
+    clearScreen(COLOR_RED);
     fur_Elise();
     main();
     //buzzer_set_period(1000);
@@ -25,6 +25,7 @@ void next_state(int state) {
     led_flash(3);
     leds_off();
     red_led_on();
+    clearScreen(COLOR_ORANGE);
     happy_Bday();
     //buzzer_set_period(1000);
     leds_off();
@@ -33,6 +34,7 @@ void next_state(int state) {
     led_flash(3);
     leds_off();
     red_led_on();
+    clearScreen(COLOR_BROWN);
     Mario(); // CHRISTMAS NOT MARIO
     //buzzer_set_period(1000);
     leds_off();
@@ -41,6 +43,7 @@ void next_state(int state) {
     led_flash(3);
     leds_off();
     red_led_on();
+    clearScreen(COLOR_GREEN);
     runawey();
     //buzzer_set_period(1000);
     leds_off();
@@ -51,6 +54,6 @@ void next_state(int state) {
   }
   // turn on the green led to indicate that the MSP ready for the next step.
   green_led_on();
-  lcd_init();
+  //lcd_init();
   clearScreen(COLOR_BLUE);
 }
