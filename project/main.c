@@ -9,9 +9,6 @@
 
 int main(void) {
   configureClocks();
-  switch_init();              // initialize switches
-  led_init();                 // initialize led
-  buzzer_init();            // initialize buzzer
 
   lcd_init(); // ADDED
   u_char width = screenWidth, height = screenHeight; // ADDED
@@ -23,6 +20,10 @@ int main(void) {
       drawPixel(centerCol + col, centerRow + row, COLOR_PINK); // ADDED
     }
   }
+  
+  switch_init();              // initialize switches
+  led_init();                 // initialize led
+  buzzer_init();            // initialize buzzer
   
   green_led_on();             // turn on the green led
   enableWDTInterrupts();      // enable WatchDog interrupts
