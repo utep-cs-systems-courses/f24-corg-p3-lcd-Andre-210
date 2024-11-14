@@ -3,13 +3,11 @@
 #include "led.h"
 #include "switches.h"
 #include "buzzer.h"
-
 #include "lcdutils.h" // ADDED
 #include "lcddraw.h" // ADDED
 
 int main(void) {
   configureClocks();
-
   lcd_init(); // ADDED
   u_char width = screenWidth, height = screenHeight; // ADDED
   clearScreen(COLOR_BLUE); // ADDED

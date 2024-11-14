@@ -33,7 +33,7 @@ void switch_interrupt_handler() {
     char button_2 = (p2val & SW2) ? 0 : SW2;            // if SW2 is pressed (0), set char to SW2
     char button_3 = (p2val & SW3) ? 0 : SW3;
     char button_4 = (p2val & SW4) ? 0 : SW4;
-
+    
     // go to appropriate state based on button pressed
     if (button_1) {
     next_state(1);
