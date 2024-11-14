@@ -4,6 +4,9 @@
 #include "statemachines.h"
 #include "buzzer.h"
 
+#include "lcdutils.h"
+#include "lcddraw.h"
+
 void next_state(int state) {
   leds_off();
   
@@ -12,6 +15,7 @@ void next_state(int state) {
     led_flash(3);
     leds_off();
     red_led_on();
+    clearScreen(COLOR_BLUE);
     fur_Elise();
     main();
     //buzzer_set_period(1000);
@@ -47,4 +51,6 @@ void next_state(int state) {
   }
   // turn on the green led to indicate that the MSP ready for the next step.
   green_led_on();
+  lcd_init();
+  clearScreen(COLOR_BLUE);
 }
