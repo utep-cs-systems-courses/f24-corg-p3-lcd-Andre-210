@@ -17,7 +17,7 @@ void next_state(int state) {
     red_led_on();
     clearScreen(COLOR_RED);
     fur_Elise();
-    main();
+    //main();
     //buzzer_set_period(1000);
     leds_off();
     break;
