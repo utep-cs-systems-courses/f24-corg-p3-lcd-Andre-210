@@ -6,7 +6,7 @@ CPU             = msp430g2553
 
 CFLAGS          = -mmcu=${CPU} -I../h
 
-LDFLAGS		= -L/opt/ti/msp430_gcc/include
+LDFLAGS		= -L/opt/ti/msp430_gcc/include -L../lib
 
 
 
@@ -16,19 +16,28 @@ CC              = msp430-elf-gcc
 
 AS              = msp430-elf-as
 
+AR		= msp430-elf-ar
 
-
-all: main.elf
+all: main.elf libLcd.a
 
 
 
 #additional rules for files
 
-main.elf: ${COMMON_OBJECTS} main.o led.o switches.o statemachines.o buzzer.o wdInterrupthandler.o p2_interrupt_handler.o ../lib/libTimer.a
+libLcd.a: font-11x16.o font-5x7.o font-8x12.o lcdutils.o lcddraw.o
+	$(AR) crs $@ $^
+
+lcddraw.o: lcddraw.c lcddraw.h lcdutils.h
+lcdutils.o: lcdutils.c lcdutils.h
+
+install: libLcd.a
+	mkdir -p ../h ../lib
+	mv $^ ../lib
+	cp *.h ../h
+
+main.elf: ${COMMON_OBJECTS} main.o led.o switches.o statemachines.o buzzer.o wdInterrupthandler.o p2_interrupt_handler.o libLcd.a ../lib/libTimer.a
 
 	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^
-
-
 
 load: main.elf
 
@@ -39,3 +48,4 @@ load: main.elf
 clean:
 
 	rm -f *.o *.elf *~
+	rm -f libLcd.a *.o
