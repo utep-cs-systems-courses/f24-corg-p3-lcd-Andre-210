@@ -82,4 +82,29 @@
 #define Bb6 1865
 #define B6 1976
 
+#define Fsharp4 370
+#define Fsharp5 740
+#define G4 392
+#define Gsharp4 415
+#define A4 440
+#define B4 494
+#define C5 523
+#define D5 587
+#define E5 659
+#define D4 294
+#define E4 330
+#define Fsharp4 370
+#define G4 392
+#define A4 440
+#define B4 494
+#define Csharp6 1109
+#define C6 1047
+#define D6 1175
+#define E6 1319
+#define F2 87
+#define A5 880
+#define B5 988
+#define G5 784
+#define A3 220
+
 #define bk 0

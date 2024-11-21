@@ -56,10 +56,8 @@ void fur_Elise()
 
 void happy_Bday()
 {
-
-  int notes[] = {G4,G4,A3,G4,C4,B5,bk,G4,G4,A3,G4,D5,C4,bk,G4,G4,G5,E4,C4,B5,A3,bk,F4,F4,E4,C4,D5,C4};
-  int tempo[] = {500,500,500,500,500,500,500,500,500,500,500,500,500,500,500,500,500,500,500,500,500,500,500,500,500,500,500,500,};
-
+  int notes[] = {F2, F3, A3, D4, E4, C2, G3, B3, D4, E4, F2, C3, F3, A3, D4, E4, C2, G2, E3, B3, D4, E4, D5, D6, F2, C3, F3, A3, D4, Csharp6, C6, E4, B5, C2, G2, E3, B3, A5, D4, G5, E4, D5, E5, D6, F2, C3, F3, A3, D4, Csharp6, C6, E6, B5, E6, C2, G2, E3, B3, D4, E4};
+  int tempo[] ={1276, 300, 300, 300, 1276, 1276, 300, 300, 300, 1276, 1276, 600, 500, 500, 500, 1276, 600, 500, 500, 500, 400, 500, 500, 1276, 600, 300, 300, 300, 300, 600, 1276, 300, 300, 300, 300, 300, 300, 1276, 600, 300, 300, 500, 300, 500, 1276, 600, 300, 300, 300, 300, 300, 500, 400, 600, 1276, 600, 300, 300, 300, 300, 1276, 600, 300, 300, 300, 300, 300};
   int noteAmt = sizeof(notes)/sizeof(notes[0]);
   playTune(notes,tempo,noteAmt);
   buzzer_set_period(bk);
@@ -67,8 +65,8 @@ void happy_Bday()
 
 void Mario()
 {
-  int notes[] = {C4,C4,G4,G4,A4,A4,G4,F4,F4,E4,E4,D4,D4,C4,E4,E4,D4,D4,E4,E4,D4,G4,G4,F4,F4,E4,E4,D4,D4,C4};
-  int tempo[] = {400,400,400,400,400,400,400,400,400,400,400,400,400,400,400,400,400,400,400,400,400,400,400,400,400,400,400,400,400,400};
+  int notes[] = {D4, G4, B4, A4, G4, Fsharp4, G4, A4, B4, A4, G4, Fsharp4, E4, Fsharp4, G4, D4, G4, B4, A4, G4, Fsharp4, G4, E4};
+  int tempo[] = {500, 500, 500, 750, 250, 500, 500, 500, 750, 250, 500, 500, 750, 250, 500, 500, 500, 500, 750, 250, 500, 500, 1000};
   
   int noteAmt = sizeof(notes)/sizeof(notes[0]);
   playTune(notes,tempo,noteAmt);
@@ -77,8 +75,8 @@ void Mario()
 
 void runawey()
 {
-  int notes[] = {E4, E4, E4, E4, G4, E4, D4, D4, D4, D4, B4, D4, C4, C4, C4, C4, E4, D4};
-  int tempo[] = {500, 500, 500, 500, 1000, 500, 500, 500, 500, 500, 1000, 500, 500, 500, 500, 500, 1000, 500};
+  int notes[] = {A4, E5, Fsharp5, E5, A4, A4, E5, Fsharp5, E5, G4, A4, B4, C5, B4, A4, Fsharp4, G4, A4, B4, C5, E5, D5, C5, B4, A4};
+  int tempo[] = {500, 500, 500, 500, 750, 500, 500, 500, 500, 750, 500, 500, 500, 500, 750, 500, 500, 500, 500, 750, 500, 500, 500, 500, 1000};
 
   int noteAmt = sizeof(notes)/sizeof(notes[0]);
   playTune(notes,tempo,noteAmt);
