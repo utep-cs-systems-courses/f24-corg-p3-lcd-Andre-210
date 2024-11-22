@@ -40,7 +40,7 @@ void drawDefault(u_int colorBGR, const char *name) {
   drawString5x7(35, height - 20, name, COLOR_WHITE, colorBGR);
 }
 
-void drawHarp(u_int x, u_int y, u_int size, u_int colorBGR) {
+void drawHarp(u_int x, u_int y, u_int size, u_int colorBGR, const char *name) {
   // Clear the screen with a background color
   clearScreen(colorBGR);
 u_int harpColor = COLOR_GOLD;   // Base color of the harp
@@ -79,10 +79,10 @@ u_int harpColor = COLOR_GOLD;   // Base color of the harp
   }
   
   // Draw text for Zelda's Lullaby
-  drawString5x7(20, screenHeight - 20, "Zelda's Lullaby", COLOR_GOLD, colorBGR);
+  drawString5x7(20, screenHeight - 20, name, COLOR_GOLD, colorBGR);
 }
 
-void drawHyruleShieldWithSword(u_int x, u_int y, u_int size, u_int colorBGR) {
+void drawHyruleShieldWithSword(u_int x, u_int y, u_int size, u_int colorBGR, const char *name) {
   clearScreen(COLOR_DARK_GREEN);
   u_int shieldColor = COLOR_BLUE;    // Base color of the shield
   u_int trimColor = COLOR_GRAY;      // Shield trim color
@@ -123,10 +123,10 @@ void drawHyruleShieldWithSword(u_int x, u_int y, u_int size, u_int colorBGR) {
   }
 
   // Now draw the shield on top of the sword
-  drawHyruleShield(x, y, size, u_int colorBGR);
+  drawHyruleShield(x, y, size, u_int colorBGR, name);
 }
 
-void drawHyruleShield(u_int x, u_int y, u_int size, u_int colorBGR) {
+void drawHyruleShield(u_int x, u_int y, u_int size, u_int colorBGR, const char *name) {
   u_int shieldColor = COLOR_BLUE;    // Base color of the shield
   u_int trimColor = COLOR_GRAY;      // Shield trim color
   u_int triforceColor = COLOR_GOLD;  // Triforce color
@@ -187,5 +187,5 @@ void drawHyruleShield(u_int x, u_int y, u_int size, u_int colorBGR) {
       drawPixel(x + col, y + row, trimColor);
     }
   }
-  drawString5x7(20, 120, "Ocarina of Time", COLOR_RED, colorBGR);
+  drawString5x7(20, 120, name, COLOR_RED, colorBGR);
 }
