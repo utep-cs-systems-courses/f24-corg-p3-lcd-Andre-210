@@ -9,8 +9,8 @@
 int main(void) {
   configureClocks();
   lcd_init(); // ADDED
-  u_char width = screenWidth, height = screenHeight; // ADDED
-  clearScreen(COLOR_BLUE); // ADDED
+  //u_char width = screenWidth, height = screenHeight; // ADDED
+  //clearScreen(COLOR_BLUE); // ADDED
   //int col = 0, row = 0; // ADDED
   //int centerCol = width/2, centerRow = height/2; // ADDED
   //for (row = 0; row < 20; row++) { // ADDED
