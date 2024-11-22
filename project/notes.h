@@ -22,16 +22,26 @@
 #define NOTE_D4 16
 #define NOTE_E4 17
 #define NOTE_F4 18
-#define NOTE_G4 19
-#define NOTE_A4 20
-#define NOTE_B4 21
-#define NOTE_C5 22
-#define NOTE_D5 23
-#define NOTE_E5 24
-#define NOTE_F5 25
-#define NOTE_G5 26
-#define NOTE_A5 27
-#define NOTE_B5 28
+#define NOTE_Fsharp4 19
+#define NOTE_G4 20
+#define NOTE_A4 21
+#define NOTE_B4 22
+#define NOTE_C5 23
+#define NOTE_D5 24
+#define NOTE_E5 25
+#define NOTE_F5 26
+#define NOTE_Fsharp5 27
+#define NOTE_G5 28
+#define NOTE_A5 29
+#define NOTE_B5 30
+#define NOTE_C6 31
+#define NOTE_D6 32
+#define NOTE_E6 33
+#define NOTE_F6 34
+#define NOTE_Fsharp6 35
+#define NOTE_G6 36
+#define NOTE_A6 37
+#define NOTE_B6 38
 
 extern const int frequencies[];
 #endif

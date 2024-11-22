@@ -27,6 +27,7 @@ const int frequencies[] = {
   294,
   330,
   349,
+  370,
   392,
   440,
   494,
@@ -34,9 +35,22 @@ const int frequencies[] = {
   587,
   659,
   698,
+  740,
   784,
   800,
-  988
+  988,
+  1047,
+  1109,
+  1175,
+  1245,
+  1319,
+  1397,
+  1480,
+  1568,
+  1661,
+  1760,
+  1865,
+  1976
 };
 const int baseTempo = 100;
 
@@ -74,21 +88,33 @@ void playTune(const uint8_t *notes, const uint8_t *tempo, int noteAmt) {
   leds_off();                           // endsure leds are off
 }
 
-//void zeldas_lullaby() { // Zelda's Lullaby
-  // notes for song (store in flash)
-  //const int notes[] = {C3, G3, E4, C3, A3, Fsharp4, C3, G3, E4, C3, A3, Fsharp4, C3, B4, G3};
-  // tempo for each note (store in flash)
-  //const int tempo[] = {500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 750, 250, 500};
-  // play the song
-  //int noteAmt = sizeof(notes)/sizeof(notes[0]);
-  //playTune(notes,tempo,noteAmt);
-  // reset the buzzer state
-  //buzzer_set_period(0); // CHANGED FROM bk TO 0
-//}
-
+void zeldas_lullaby() { // Zelda's Lullaby
+  const uint8_t notes[] = {NOTE_C3, NOTE_G3, NOTE_E4, NOTE_C3, NOTE_A3, NOTE_Fsharp4,
+			   NOTE_C3, NOTE_G3, NOTE_E4, NOTE_C3, NOTE_A3, NOTE_Fsharp4,
+			   NOTE_C3, NOTE_B4, NOTE_G3, NOTE_E4, NOTE_D5, NOTE_C3,
+			   NOTE_B4
+                          };
+  const uint8_t tempo[] = {5, 5, 5, 5, 5, 5,
+			   5, 5, 5, 5, 5, 5,
+			   7, 3, 5, 5, 5, 7,
+			   3
+                          };
+  int noteAmt = sizeof(notes) / sizeof(notes[0]);
+  playTune(notes, tempo, noteAmt);
+  buzzer_set_period(0);
+}
 void oot() { // Ocarina of Time Theme
-  const uint8_t notes[] = {NOTE_F2, NOTE_F3, NOTE_A3, NOTE_D4, NOTE_E4, NOTE_C2};
-  const uint8_t tempo[] = {13, 3, 3, 3, 13, 13};
+  const uint8_t notes[] = {NOTE_F2, NOTE_F3, NOTE_A3, NOTE_D4, NOTE_E4, NOTE_C2,
+                           NOTE_G3, NOTE_B3, NOTE_D4, NOTE_E4, NOTE_F2, NOTE_C3,
+                           NOTE_F3, NOTE_A3, NOTE_D4, NOTE_E4, NOTE_C2, NOTE_G2,
+                           NOTE_E3, NOTE_B3, NOTE_D4, NOTE_E4, NOTE_D5, NOTE_D6,
+			   NOTE_F2, NOTE_C3, NOTE_F3, NOTE_A3, NOTE_D4};
+  const uint8_t tempo[] = {13, 3, 3, 3, 13, 13,
+			   3, 3, 3, 13, 13, 6,
+                           5, 5, 5, 13, 6, 5,
+                           5, 5, 4, 5, 5, 13,
+                           6, 3, 3, 3, 3, 6,
+                           13, 3, 3};
   int noteAmt = sizeof(notes) / sizeof(notes[0]);
   playTune(notes, tempo, noteAmt);
 }
@@ -107,16 +133,21 @@ void oot() { // Ocarina of Time Theme
   //buzzer_set_period(0); // CHANGED FROM bk TO 0
 //}
 
-//void tp() { // Twilight Princess Theme
-  // notes for the song (store in flash)
-  //const int notes[] = {D3, E3, F3, A3, C4, E4, D3, E3, F3, A3, C4, E4, D3, E3, F3, A3, C4, E4, G4, E4, C4, A3, F3, E3, A4, F5, E5, C5, B4, A4, G4, B4, D6, A6, E6, D6};
-  // tempo for each note (store in flash)
-  //const int tempo[] = {400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 500, 400, 400, 400, 400, 400, 400, 400, 300, 300, 300, 300};
-  //const int notes[] = {D3, E3, F3, A3, C4, E4, D3, E3, F3, A3, C4, E4, D3, E3, F3, A3, C4, E4, G4, E4, C4, A3, F3, E3, A4, F5, E5, C5, B4, A4};
-  //const int tempo[] = {400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 500, 400, 400, 400, 400, 400};
-  // play the song
-  //int noteAmt = sizeof(notes)/sizeof(notes[0]);
-  //playTune(notes,tempo,noteAmt);
-  // reset the buzzer state
-  //buzzer_set_period(0); // CHANGED FROM bk TO 0
-  //}
+void tp() { // Twilight Princess Theme
+  const uint8_t notes[] = {NOTE_D3, NOTE_E3, NOTE_F3, NOTE_A3, NOTE_C4, NOTE_E4,
+			   NOTE_D3, NOTE_E3, NOTE_F3, NOTE_A3, NOTE_C4, NOTE_E4,
+			   NOTE_D3, NOTE_E3, NOTE_F3, NOTE_A3, NOTE_C4, NOTE_E4,
+			   NOTE_G4, NOTE_E4, NOTE_C4, NOTE_A3, NOTE_F3, NOTE_E3,
+			   NOTE_A4, NOTE_F5, NOTE_E5, NOTE_C5, NOTE_B4, NOTE_A4,
+			   NOTE_G4
+                          };
+  const uint8_t tempo[] = {4, 4, 4, 4, 4, 4,
+			   4, 4, 4, 4, 4, 4,
+			   3, 3, 3, 3, 3, 3,
+			   3, 3, 3, 3, 3, 3,
+			   5, 4, 4, 4, 4, 4,
+                          };
+  int noteAmt = sizeof(notes) / sizeof(notes[0]);
+  playTune(notes, tempo, noteAmt);
+  buzzer_set_period(0);
+}

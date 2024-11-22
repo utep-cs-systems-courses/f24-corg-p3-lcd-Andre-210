@@ -18,8 +18,8 @@ void next_state(int state) {
     red_led_on();
     //drawZeldasLullaby();
     drawDefault(COLOR_BROWN);
-    //zeldas_lullaby();
-    oot(); // added
+    zeldas_lullaby();
+    //oot(); // added
     //tp();
     leds_off();
     break;
@@ -50,8 +50,8 @@ void next_state(int state) {
     red_led_on();
     //drawTP();
     drawDefault(COLOR_FOREST_GREEN);
-    //tp();
-    oot(); // added
+    tp();
+    //oot(); // added
     leds_off();
     break;
   default:
