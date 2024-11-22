@@ -80,22 +80,24 @@ void drawDefault(u_int colorBGR, const char *name) {
 
 void drawHyruleShield(u_int x, u_int y, u_int size) {
   clearScreen(COLOR_DARK_GREEN);
-  u_int shieldColor = COLOR_BLUE;   // Base color of the shield
-  u_int trimColor = COLOR_GRAY;  // Shield trim color
-  u_int triforceColor = COLOR_GOLD; // Triforce color
-  u_int crestColor = COLOR_RED;    // Crest color
-  u_int borderColor = COLOR_BLACK; // Border color
+  u_int shieldColor = COLOR_BLUE;    // Base color of the shield
+  u_int trimColor = COLOR_GRAY;      // Shield trim color
+  u_int triforceColor = COLOR_GOLD;  // Triforce color
+  u_int crestColor = COLOR_RED;      // Crest color
+  u_int borderColor = COLOR_BLACK;   // Border color
 
-  // Draw the shield's border (triangle shape)
+  // Draw the rounded shield border
   for (int row = 0; row < size; row++) {
-    for (int col = -row; col <= row; col++) {
+    int width = size - row / 2;  // Gradually reduce width for rounded edges
+    for (int col = -width; col <= width; col++) {
       drawPixel(x + col, y + row, borderColor);
     }
   }
 
   // Draw the blue inner shield
   for (int row = 1; row < size - 2; row++) {
-    for (int col = -(row - 1); col <= (row - 1); col++) {
+    int width = size - row / 2 - 2;  // Slightly smaller for inner shape
+    for (int col = -width; col <= width; col++) {
       drawPixel(x + col, y + row, shieldColor);
     }
   }
@@ -116,14 +118,25 @@ void drawHyruleShield(u_int x, u_int y, u_int size) {
   int crestBaseRow = triforceBaseRow + triforceHeight + 2;
 
   for (int row = 0; row < crestHeight; row++) {
-    for (int col = -row * 2; col <= row * 2; col++) {
+    for (int col = -row * 3 / 2; col <= row * 3 / 2; col++) {  // Wider crest
       drawPixel(x + col, crestBaseRow + row, crestColor);
     }
   }
 
-  // Draw the silver trim around the blue shield
-  for (int row = size - 3; row < size; row++) {
+  // Add decorative gray details around the crest
+  int detailRow = crestBaseRow - 3;
+  int detailSize = crestHeight / 2;
+  for (int row = 0; row < detailSize; row++) {
     for (int col = -row; col <= row; col++) {
+      drawPixel(x - size / 4 + col, detailRow + row, trimColor); // Left detail
+      drawPixel(x + size / 4 + col, detailRow + row, trimColor); // Right detail
+    }
+  }
+
+  // Draw bottom point of the shield (rounded)
+  for (int row = size - 3; row < size; row++) {
+    int width = size / 8;  // Bottom point width
+    for (int col = -width; col <= width; col++) {
       drawPixel(x + col, y + row, trimColor);
     }
   }
