@@ -43,53 +43,41 @@ void drawDefault(u_int colorBGR, const char *name) {
 void drawHarp(u_int x, u_int y, u_int size) {
   // Clear the screen with a background color
   clearScreen(COLOR_BROWN);
-  u_int harpColor = COLOR_GOLD;    // Base color of the harp
+u_int harpColor = COLOR_GOLD;   // Base color of the harp
   u_int stringColor = COLOR_WHITE; // Strings of the harp
 
-  // Draw the rounded body of the harp
-  for (int row = -size; row <= size; row++) {
-    for (int col = -size; col <= size; col++) {
-      int distanceSquared = row * row + col * col;
-      if (distanceSquared <= size * size && distanceSquared >= (size - 6) * (size - 6)) {
-        drawPixel(x + col, y + row, harpColor); // Circular outline
-      }
+  // Draw the base of the harp (semi-circle arc)
+  for (int row = 0; row < size / 2; row++) {
+    for (int col = -row; col <= row; col++) {
+      drawPixel(x + col, y + row, harpColor);
     }
   }
 
-  // Draw the harp strings (vertical lines inside the circle)
-  int stringSpacing = size / 6; // Space the strings evenly
-  for (int i = -3; i <= 3; i++) { // 7 strings
-    for (int row = -size + 6; row <= size - 6; row++) {
-      drawPixel(x + i * stringSpacing, y + row, stringColor);
-    }
-  }
-
-  // Add left and right decorative arms
-  int armWidth = size / 4;
-  int armHeight = size / 2;
-
-  for (int row = 0; row < armHeight; row++) {
-    for (int col = -armWidth; col <= armWidth; col++) {
+  // Draw the left and right decorative arms
+  for (int row = 0; row < size / 2; row++) {
+    for (int col = -size / 8; col <= size / 8; col++) {
       // Left arm
-      if (row + abs(col) < armHeight) {
-        drawPixel(x - size + col, y + row - size / 2, harpColor);
-      }
+      drawPixel(x - size / 2 + col, y + row, harpColor);
       // Right arm
-      if (row + abs(col) < armHeight) {
-        drawPixel(x + size + col, y + row - size / 2, harpColor);
-      }
+      drawPixel(x + size / 2 + col, y + row, harpColor);
     }
   }
 
-  // Add a decorative arc at the top of the harp
-  int topArcHeight = size / 4;
-  for (int row = 0; row < topArcHeight; row++) {
-    for (int col = -size / 2; col <= size / 2; col++) {
-      if (row * row + col * col <= (topArcHeight - 1) * (topArcHeight - 1)) {
-        drawPixel(x + col, y - size + row, harpColor);
-      }
+  // Draw the harp strings
+  int stringSpacing = size / 10;
+  for (int i = 0; i <= 6; i++) { // Draw 7 strings
+    for (int row = 0; row < size / 2; row++) {
+      drawPixel(x - size / 3 + i * stringSpacing, y + row, stringColor);
     }
   }
+
+  // Add decorative details (small arcs for top and bottom edges)
+  for (int row = size / 2 - 3; row < size / 2; row++) {
+    for (int col = -row / 2; col <= row / 2; col++) {
+      drawPixel(x + col, y + row + size / 2, harpColor); // Bottom arc
+    }
+  }
+  
   // Draw text for Zelda's Lullaby
   drawString5x7(20, screenHeight - 20, "Zelda's Lullaby", COLOR_GOLD, COLOR_BROWN);
 }
