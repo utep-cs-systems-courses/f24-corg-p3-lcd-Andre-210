@@ -17,7 +17,7 @@ void next_state(int state) {
     leds_off();
     red_led_on();
     //drawZeldasLullaby();
-    drawDefault(COLOR_GREY);
+    drawDefault(COLOR_GRAY);
     //zeldas_lullaby();
     oot(); // added
     leds_off();
