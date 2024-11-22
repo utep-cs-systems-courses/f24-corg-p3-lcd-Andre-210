@@ -17,7 +17,7 @@ void next_state(int state) {
     leds_off();
     red_led_on();
     //drawZeldasLullaby();
-    drawDefault(COLOR_BROWN);
+    drawDefault(COLOR_BROWN, "Zelda's Lullaby");
     zeldas_lullaby();
     //oot(); // added
     //tp();
@@ -28,7 +28,7 @@ void next_state(int state) {
     leds_off();
     red_led_on();
     //drawOOT();
-    drawDefault(COLOR_TURQUOISE);
+    drawDefault(COLOR_TURQUOISE, "Ocarina of Time");
     oot();
     //tp();
     leds_off();
@@ -38,7 +38,7 @@ void next_state(int state) {
     leds_off();
     red_led_on();
     //drawSOH();
-    drawDefault(COLOR_RED);
+    drawDefault(COLOR_RED, "Song of Healing");
     soh();
     //oot(); // added
     //tp();
@@ -49,7 +49,7 @@ void next_state(int state) {
     leds_off();
     red_led_on();
     //drawTP();
-    drawDefault(COLOR_FOREST_GREEN);
+    drawDefault(COLOR_FOREST_GREEN, "Twilight Princess");
     tp();
     //oot(); // added
     leds_off();
@@ -60,5 +60,5 @@ void next_state(int state) {
   }
   // turn on the green led to indicate that the MSP ready for the next step.
   green_led_on();
-  drawDefault(COLOR_KHAKI);
+  drawDefault(COLOR_KHAKI, "Song Player");
 }

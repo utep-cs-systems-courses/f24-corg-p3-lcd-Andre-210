@@ -1,7 +1,7 @@
 #include "lcdutils.h"
 #include "lcddraw.h"
 
-void drawDefault(u_int colorBGR) {
+void drawDefault(u_int colorBGR, const char *name) {
   clearScreen(colorBGR);
   drawString5x7(10, 15, "The Legend of Zelda", COLOR_GOLD, colorBGR);
   // find the height and width of the screen
@@ -37,6 +37,7 @@ void drawDefault(u_int colorBGR) {
       drawPixel(rightCenterCol + col, rightCenterRow + row, COLOR_GOLD);
     }
   }
+  drawString5x7(10, height - 20, name, COLOR_BLACK, colorBGR);
 }
 
 //void drawZeldasLullaby() {
