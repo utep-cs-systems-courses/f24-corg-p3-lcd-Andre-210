@@ -1,6 +1,16 @@
 #include "lcdutils.h"
 #include "lcddraw.h"
 
+void drawDefault() {
+  clearScreen(COLOR_BLUE);
+  int col = 0, row = 0; 
+  int centerCol = width/2, centerRow = height/2;
+  for (row = 0; row < 20; row++) { 
+    for (col = -row; col <= row; col+=2) {
+      drawPixel(centerCol + col, centerRow + row, COLOR_PINK);
+      }
+    }
+}
 void drawZeldasLullaby() {
   clearScreen(COLOR_RED);
   drawString5x7(30, 30, "Zelda's Lullaby", COLOR_WHITE, COLOR_RED);
