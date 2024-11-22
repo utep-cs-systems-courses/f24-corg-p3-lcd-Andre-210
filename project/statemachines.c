@@ -61,5 +61,5 @@ void next_state(int state) {
   }
   // turn on the green led to indicate that the MSP ready for the next step.
   green_led_on();
-  drawDefault(COLOR_KHAKI, "Song Player");
+  drawDefault(COLOR_BLACK, "Song Player");
 }

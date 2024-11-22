@@ -37,7 +37,7 @@ void drawDefault(u_int colorBGR, const char *name) {
       drawPixel(rightCenterCol + col, rightCenterRow + row, COLOR_GOLD);
     }
   }
-  drawString5x7(10, height - 20, name, COLOR_BLACK, colorBGR);
+  drawString5x7(35, height - 20, name, COLOR_WHITE, colorBGR);
 }
 
 //void drawZeldasLullaby() {
@@ -123,7 +123,6 @@ void drawHyruleShieldWithSword(u_int x, u_int y, u_int size) {
 }
 
 void drawHyruleShield(u_int x, u_int y, u_int size) {
-  clearScreen(COLOR_DARK_GREEN);
   u_int shieldColor = COLOR_BLUE;    // Base color of the shield
   u_int trimColor = COLOR_GRAY;      // Shield trim color
   u_int triforceColor = COLOR_GOLD;  // Triforce color
@@ -184,6 +183,7 @@ void drawHyruleShield(u_int x, u_int y, u_int size) {
       drawPixel(x + col, y + row, trimColor);
     }
   }
+  drawString5x7(20, 120, "Ocarina of Time", COLOR_RED, COLOR_DARK_GREEN);
 }
 
 //void drawSOH() {
