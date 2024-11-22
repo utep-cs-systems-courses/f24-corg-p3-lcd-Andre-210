@@ -3,6 +3,7 @@
 
 void drawDefault() {
   clearScreen(COLOR_BLUE);
+  drawString5x7(10, 15, "The Legend of Zelda", COLOR_YELLOW, COLOR_BLUE);
   // find the height and width of the screen
   u_char width = screenWidth, height = screenHeight;
   // find the location of the top triangle
@@ -13,7 +14,7 @@ void drawDefault() {
   // draw the top triangle
   for (int row = 0; row < sideLength; row++) {
     for (int col = -row; col <= row; col++) {
-      drawPixel(centerCol + col, centerRow + row, COLOR_PINK);
+      drawPixel(centerCol + col, centerRow + row, COLOR_YELLOW);
     }
   }
 
@@ -23,7 +24,7 @@ void drawDefault() {
   int leftCenterRow = centerRow + sideLength;
   for (int row = 0; row < sideLength; row++) {
     for (int col = -row; col <= row; col++) {
-      drawPixel(leftCenterCol + col, leftCenterRow + row, COLOR_PINK);
+      drawPixel(leftCenterCol + col, leftCenterRow + row, COLOR_YELLOW);
     }
   }
 
@@ -33,7 +34,7 @@ void drawDefault() {
   int rightCenterRow = centerRow + sideLength;
   for (int row = 0; row < sideLength; row++) {
     for (int col = -row; col <= row; col++) {
-      drawPixel(rightCenterCol + col, rightCenterRow + row, COLOR_PINK);
+      drawPixel(rightCenterCol + col, rightCenterRow + row, COLOR_YELLOW);
     }
   }
 }
