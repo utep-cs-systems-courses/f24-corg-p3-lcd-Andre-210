@@ -17,9 +17,10 @@ void next_state(int state) {
     leds_off();
     red_led_on();
     //drawZeldasLullaby();
-    drawDefault(COLOR_GREY);
+    drawDefault(COLOR_BROWN);
     //zeldas_lullaby();
     oot(); // added
+    //tp();
     leds_off();
     break;
   case 2:
@@ -27,8 +28,9 @@ void next_state(int state) {
     leds_off();
     red_led_on();
     //drawOOT();
-    drawDefault(COLOR_BLUE);
+    drawDefault(COLOR_TURQUOISE);
     oot();
+    //tp();
     leds_off();
     break;
   case 3:
@@ -39,6 +41,7 @@ void next_state(int state) {
     drawDefault(COLOR_RED);
     //soh();
     oot(); // added
+    //tp();
     leds_off();
     break;
   case 4:
@@ -46,7 +49,7 @@ void next_state(int state) {
     leds_off();
     red_led_on();
     //drawTP();
-    drawDefault(COLOR_GREEN);
+    drawDefault(COLOR_FOREST_GREEN);
     //tp();
     oot(); // added
     leds_off();
@@ -57,5 +60,5 @@ void next_state(int state) {
   }
   // turn on the green led to indicate that the MSP ready for the next step.
   green_led_on();
-  drawDefault(COLOR_WHITE);
+  drawDefault(COLOR_KHAKI);
 }

@@ -5,6 +5,41 @@
 #include "statemachines.h"
 #include "led.h"
 
+#include <stdint.h>
+
+const int frequencies[] = {
+  0,
+  65,
+  73,
+  82,
+  87,
+  98,
+  110,
+  123,
+  131,
+  146,
+  165,
+  175,
+  196,
+  220,
+  247,
+  262,
+  294,
+  330,
+  349,
+  392,
+  440,
+  494,
+  523,
+  587,
+  659,
+  698,
+  784,
+  800,
+  988
+};
+const int baseTempo = 100;
+
 void buzzer_init() {
     timerAUpmode();		/* used to drive speaker */
     P2SEL2 &= ~(BIT6 | BIT7);
@@ -18,7 +53,7 @@ void buzzer_set_period(short cycles) {
   CCR1 = cycles >> 1;	
 }
 
-void playTune(const int *notes, const int*tempo, int noteAmt) {
+void playTune(const uint8_t *notes, const uint8_t *tempo, int noteAmt) {
   for(int i = 0; i < noteAmt; i++) {
     if((i % 2) == 0 ) {
       red_led_on();
@@ -26,8 +61,9 @@ void playTune(const int *notes, const int*tempo, int noteAmt) {
     else {
       green_led_on();
     }
-    buzzer_set_period(1000000 / notes[i]);
-    int dur = tempo[i];
+    int frequency = frequencies[notes[i]];
+    buzzer_set_period(frequency ? 1000000 / frequency : 0);
+    int dur = tempo[i] * baseTempo;
     while(dur--) {
 	__delay_cycles(10000);
     }
@@ -51,15 +87,10 @@ void playTune(const int *notes, const int*tempo, int noteAmt) {
 //}
 
 void oot() { // Ocarina of Time Theme
-  // notes for song (store in flash)
-  const int notes[] = {F2, F3, A3, D4, E4, C2, G3, B3, D4, E4, F2, C3, F3, A3, D4, E4, C2, G2, E3, B3, D4, E4, D5, D6, F2, C3, F3, A3, D4};
-  // tempo for each note (store in flash)
-  const int tempo[] ={1276, 300, 300, 300, 1276, 1276, 300, 300, 300, 1276, 1276, 600, 500, 500, 500, 1276, 600, 500, 500, 500, 400, 500, 500, 1276, 600, 300, 300, 300, 300, 600, 1276, 300, 300};
-  // play the song
-  int noteAmt = sizeof(notes)/sizeof(notes[0]);
-  playTune(notes,tempo,noteAmt);
-  // reset the buzzer state
-  buzzer_set_period(0); // CHANGED FROM bk TO 0
+  const uint8_t notes[] = {NOTE_F2, NOTE_F3, NOTE_A3, NOTE_D4, NOTE_E4, NOTE_C2};
+  const uint8_t tempo[] = {13, 3, 3, 3, 13, 13};
+  int noteAmt = sizeof(notes) / sizeof(notes[0]);
+  playTune(notes, tempo, noteAmt);
 }
 
 //void soh() { // Song of Healing
@@ -88,4 +119,4 @@ void oot() { // Ocarina of Time Theme
   //playTune(notes,tempo,noteAmt);
   // reset the buzzer state
   //buzzer_set_period(0); // CHANGED FROM bk TO 0
-//}
+  //}

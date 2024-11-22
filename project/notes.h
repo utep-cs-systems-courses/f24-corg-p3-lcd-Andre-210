@@ -1,90 +1,37 @@
-#define C1 32
-#define Csharp1 34
-#define D1 36
-#define Dsharp1 38
-#define E1 41
-#define F1 43
-#define Fsharp1 46
-#define G1 49
-#define Gsharp1 52
-#define A1 55
-#define Asharp1 58
-#define Bb1 58
-#define B1 62
+#ifndef notes_included
+#define notes_included
 
-#define C2 65
-#define Csharp2 69
-#define D2 73
-#define Dsharp2 77
-#define E2 82
-#define F2 87
-#define Fsharp2 92
-#define G2 98
-#define Gsharp2 104
-#define A2 110
-#define Asharp2 117
-#define Bb2 117
-#define B2 123
+#include <stdint.h>
 
-#define C3 131
-#define Csharp3 138
-#define D3 146
-#define Dsharp3 155
-#define E3 165
-#define F3 175
-#define Fsharp3 185
-#define G3 196
-#define Gsharp3 207
-#define A3 220
-#define Asharp3 233
-#define Bb3 233
-#define B3 247
+#define NOTE_REST 0
+#define NOTE_C2 1
+#define NOTE_D2 2
+#define NOTE_E2 3
+#define NOTE_F2 4
+#define NOTE_G2 5
+#define NOTE_A2 6
+#define NOTE_B2 7
+#define NOTE_C3 8
+#define NOTE_D3 9
+#define NOTE_E3 10
+#define NOTE_F3 11
+#define NOTE_G3 12
+#define NOTE_A3 13
+#define NOTE_B3 14
+#define NOTE_C4 15
+#define NOTE_D4 16
+#define NOTE_E4 17
+#define NOTE_F4 18
+#define NOTE_G4 19
+#define NOTE_A4 20
+#define NOTE_B4 21
+#define NOTE_C5 22
+#define NOTE_D5 23
+#define NOTE_E5 24
+#define NOTE_F5 25
+#define NOTE_G5 26
+#define NOTE_A5 27
+#define NOTE_B5 28
 
-#define C4 262
-#define Csharp4 277
-#define D4 294
-#define Dsharp4 311
-#define E4 330
-#define F4 349
-#define Fsharp4 370
-#define G4 392
-#define Gsharp4 415
-#define A4 440
-#define Asharp4 466
-#define Bb4 466
-#define B4 494
-
-#define C5 523
-#define Csharp5 554
-#define D5 587
-#define Dsharp5 622
-#define E5 659
-#define F5 698
-#define Fsharp5 740
-#define G5 784
-#define Gsharp5 831
-#define A5 880
-#define Asharp5 932
-#define Bb5 932
-#define B5 988
-
-#define C6 1047
-#define Csharp6 1109
-#define D6 1175
-#define Dsharp6 1245
-#define E6 1319
-#define F6 1397
-#define Fsharp6 1480
-#define G6 1568
-#define Gsharp6 1661
-#define A6 1760
-#define Asharp6 1865
-#define Bb6 1865
-#define B6 1976
-
-#define Ds5 633
-#define As5 932
-#define A5 880
-#define C7 2093
-
-#define bk 0
+extern const int frequencies[];
+#endif
