@@ -190,7 +190,7 @@ void drawHyruleShield(u_int x, u_int y, u_int size) {
   drawString5x7(20, 120, "Ocarina of Time", COLOR_RED, COLOR_DARK_GREEN);
 }
 
-void drawMajorasMask(u_int x, u_int y, u_int pixelSize) {
+void drawMajorasMask(u_int x, u_int y, u_int size) {
   clearScreen(COLOR_GRAY);
 
   u_int heartColor = COLOR_PURPLE;
