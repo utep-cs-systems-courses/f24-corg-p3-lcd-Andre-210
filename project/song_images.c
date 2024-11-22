@@ -123,7 +123,7 @@ void drawHyruleShieldWithSword(u_int x, u_int y, u_int size, u_int colorBGR, cha
   }
 
   // Now draw the shield on top of the sword
-  drawHyruleShield(x, y, size, u_int colorBGR, name);
+  drawHyruleShield(x, y, size, colorBGR, name);
 }
 
 void drawHyruleShield(u_int x, u_int y, u_int size, u_int colorBGR, char *name) {
