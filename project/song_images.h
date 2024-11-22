@@ -2,7 +2,7 @@
 #define song_images_included
 
 void drawDefault();
-//void drawZeldasLullaby();
+void drawHarp();
 void drawHyruleShieldWithSword();
 void drawHyruleShield();
 //void drawSOH();
