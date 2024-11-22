@@ -5,7 +5,7 @@ void drawDefault();
 void drawHarp();
 void drawHyruleShieldWithSword();
 void drawHyruleShield();
-//void drawSOH();
+void drawMajorasMask();
 //void drawTP();
 
 #endif // included
