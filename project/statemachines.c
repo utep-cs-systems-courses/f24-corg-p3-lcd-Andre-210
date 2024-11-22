@@ -17,7 +17,7 @@ void next_state(int state) {
     leds_off();
     red_led_on();
     //drawZeldasLullaby();
-    drawHarp(screenWidth / 2, screenHeight / 2, 60);
+    drawHarp(screenWidth / 2, screenHeight / 3, 60);
     zeldas_lullaby();
     //oot(); // added
     //tp();
