@@ -79,30 +79,31 @@ void drawDefault(u_int colorBGR, const char *name) {
 //}
 
 void drawHyruleShield(u_int x, u_int y, u_int size) {
-  u_int shieldColor = COLOR_BLUE;   // Base color of the shield
-  u_int trimColor = COLOR_GRAY;  // Color for shield trim
-  u_int emblemColor = COLOR_RED;   // Color for the Hyrule crest
-  u_int triforceColor = COLOR_GOLD; // Color for the Triforce
-
   clearScreen(COLOR_DARK_GREEN);
-  // Outer shape (shield trim)
+  u_int shieldColor = COLOR_BLUE;   // Base color of the shield
+  u_int trimColor = COLOR_GRAY;  // Shield trim color
+  u_int triforceColor = COLOR_GOLD; // Triforce color
+  u_int crestColor = COLOR_RED;    // Crest color
+  u_int borderColor = COLOR_BLACK; // Border color
+
+  // Draw the shield's border (triangle shape)
   for (int row = 0; row < size; row++) {
     for (int col = -row; col <= row; col++) {
-      drawPixel(x + col, y + row, trimColor);
+      drawPixel(x + col, y + row, borderColor);
     }
   }
 
-  // Inner shape (blue part of the shield)
+  // Draw the blue inner shield
   for (int row = 1; row < size - 2; row++) {
     for (int col = -(row - 1); col <= (row - 1); col++) {
       drawPixel(x + col, y + row, shieldColor);
     }
   }
 
-  // Triforce emblem
-  int triforceBaseRow = y + size / 3;
+  // Draw the triforce emblem
+  int triforceHeight = size / 5;
+  int triforceBaseRow = y + size / 4;
   int triforceBaseCol = x;
-  int triforceHeight = size / 6;
 
   for (int row = 0; row < triforceHeight; row++) {
     for (int col = -row; col <= row; col++) {
@@ -110,19 +111,19 @@ void drawHyruleShield(u_int x, u_int y, u_int size) {
     }
   }
 
-  // Red Hylian crest
-  int crestRowStart = triforceBaseRow + triforceHeight + 2;
-  int crestWidth = size / 4;
+  // Draw the red crest below the triforce
+  int crestHeight = size / 6;
+  int crestBaseRow = triforceBaseRow + triforceHeight + 2;
 
-  for (int row = 0; row < triforceHeight; row++) {
-    for (int col = -crestWidth + row; col <= crestWidth - row; col++) {
-      drawPixel(x + col, crestRowStart + row, emblemColor);
+  for (int row = 0; row < crestHeight; row++) {
+    for (int col = -row * 2; col <= row * 2; col++) {
+      drawPixel(x + col, crestBaseRow + row, crestColor);
     }
   }
 
-  // Bottom shield points (adding to the triangular base)
+  // Draw the silver trim around the blue shield
   for (int row = size - 3; row < size; row++) {
-    for (int col = -2; col <= 2; col++) {
+    for (int col = -row; col <= row; col++) {
       drawPixel(x + col, y + row, trimColor);
     }
   }
