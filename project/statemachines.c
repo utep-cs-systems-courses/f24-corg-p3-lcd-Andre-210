@@ -17,7 +17,7 @@ void next_state(int state) {
     leds_off();
     red_led_on();
     //drawZeldasLullaby();
-    drawDefault(COLOR_BROWN, "Zelda's Lullaby");
+    drawHarp(64, 40, 40);
     zeldas_lullaby();
     //oot(); // added
     //tp();
