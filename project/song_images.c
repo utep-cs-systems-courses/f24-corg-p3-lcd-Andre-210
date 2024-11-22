@@ -41,6 +41,7 @@ void drawDefault(u_int colorBGR, const char *name) {
 }
 
 void drawHarp(u_int x, u_int y, u_int size) {
+  clearScreen(COLOR_BEIGE);
   u_int harpColor = COLOR_GOLD;   // Base color of the harp
   u_int stringColor = COLOR_WHITE; // Strings of the harp
 
@@ -75,6 +76,7 @@ void drawHarp(u_int x, u_int y, u_int size) {
       drawPixel(x + col, y + row + size / 2, harpColor); // Bottom arc
     }
   }
+  drawString5x7(20, 120, "Zelda's Lullaby", COLOR_RED, COLOR_BEIGE);
 }
 
 void drawHyruleShieldWithSword(u_int x, u_int y, u_int size) {
