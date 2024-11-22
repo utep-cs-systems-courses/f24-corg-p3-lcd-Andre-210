@@ -194,24 +194,35 @@ void drawMajorasMask(u_int x, u_int y, u_int pixelSize) {
   clearScreen(COLOR_GRAY);
 
   // Colors for the mask
-  u_int colors[] = {
-    COLOR_GRAY, COLOR_RED, COLOR_YELLOW, COLOR_BLUE, COLOR_BLACK, COLOR_WHITE, COLOR_CYAN
+  u_int maskYellow = COLOR_YELLOW;
+  u_int maskRed = COLOR_RED;
+  u_int maskBlue = COLOR_BLUE;
+  u_int maskBlack = COLOR_BLACK;
+
+  // Simplified mask pattern
+  const int maskPattern[9][9] = {
+      {0, 0, 3, 0, 0, 0, 3, 0, 0}, // Horns
+      {0, 3, 0, 0, 0, 0, 0, 3, 0}, // Horns
+      {3, 0, 0, 0, 0, 0, 0, 0, 3}, // Frame
+      {0, 0, 1, 0, 0, 0, 1, 0, 0}, // Eyes
+      {0, 0, 1, 2, 0, 2, 1, 0, 0}, // Eyes
+      {0, 0, 0, 2, 2, 2, 0, 0, 0}, // Frame
+      {0, 0, 0, 0, 2, 0, 0, 0, 0}, // Frame
+      {0, 0, 0, 0, 2, 0, 0, 0, 0}, // Frame
+      {0, 0, 0, 0, 0, 0, 0, 0, 0}, // Base
   };
 
-  // Compressed mask pattern (hex digits: 0=GRAY, 1=RED, 2=YELLOW, 3=BLUE, etc.)
-  const char maskPattern[] = {
-    0x00333, 0x03113, 0x31115, 0x31544, 0x11546, 0x11146, 0x11144,
-    0x11546, 0x31544, 0x03113, 0x00333, 0x00311, 0x00033, 0x00003, 0x00000
-  };
+  // Draw the simplified mask
+  for (int row = 0; row < 9; row++) {
+    for (int col = 0; col < 9; col++) {
+      u_int color = COLOR_GRAY; // Default to background
+      switch (maskPattern[row][col]) {
+        case 1: color = maskYellow; break; // Eyes
+        case 2: color = maskRed; break;    // Eye center
+        case 3: color = maskBlue; break;   // Horns and frame
+      }
 
-  // Draw each row of the mask
-  for (int row = 0; row < 15; row++) {
-    int pattern = maskPattern[row];
-    for (int col = 0; col < 15; col++) {
-      int colorIndex = (pattern >> (4 * (14 - col))) & 0xF; // Extract each hex digit
-      u_int color = colors[colorIndex]; // Get corresponding color
-
-      // Draw the pixel as a rectangle
+      // Draw each "pixel" of the mask
       for (int dy = 0; dy < pixelSize; dy++) {
         for (int dx = 0; dx < pixelSize; dx++) {
           drawPixel(x + col * pixelSize + dx, y + row * pixelSize + dy, color);
