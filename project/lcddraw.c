@@ -11,8 +11,7 @@
  *  \param row Row to draw to
  *  \param colorBGR Color of pixel in BGR
  */
-void drawPixel(u_char col, u_char row, u_int colorBGR) 
-{
+void drawPixel(u_char col, u_char row, u_int colorBGR) {
   lcd_setArea(col, row, col, row);
   lcd_writeColor(colorBGR);
 }
@@ -25,9 +24,7 @@ void drawPixel(u_char col, u_char row, u_int colorBGR)
  *  \param height height of rectangle
  *  \param colorBGR Color of rectangle in BGR
  */
-void fillRectangle(u_char colMin, u_char rowMin, u_char width, u_char height, 
-		   u_int colorBGR)
-{
+void fillRectangle(u_char colMin, u_char rowMin, u_char width, u_char height, u_int colorBGR) {
   u_char colLimit = colMin + width, rowLimit = rowMin + height;
   lcd_setArea(colMin, rowMin, colLimit - 1, rowLimit - 1);
   u_int total = width * height;
@@ -41,8 +38,7 @@ void fillRectangle(u_char colMin, u_char rowMin, u_char width, u_char height,
  *  
  *  \param colorBGR The color to fill screen
  */
-void clearScreen(u_int colorBGR) 
-{
+void clearScreen(u_int colorBGR) {
   u_char w = screenWidth;
   u_char h = screenHeight;
   fillRectangle(0, 0, screenWidth, screenHeight, colorBGR);
@@ -51,9 +47,7 @@ void clearScreen(u_int colorBGR)
 /** 5x7 font - this function draws background pixels
  *  Adapted from RobG's EduKit
  */
-void drawChar5x7(u_char rcol, u_char rrow, char c, 
-     u_int fgColorBGR, u_int bgColorBGR) 
-{
+void drawChar5x7(u_char rcol, u_char rrow, char c, u_int fgColorBGR, u_int bgColorBGR) {
   u_char col = 0;
   u_char row = 0;
   u_char bit = 0x01;
@@ -84,9 +78,7 @@ void drawChar5x7(u_char rcol, u_char rrow, char c,
  *  \param fgColorBGR Foreground color in BGR
  *  \param bgColorBGR Background color in BGR
  */
-void drawString5x7(u_char col, u_char row, char *string,
-		u_int fgColorBGR, u_int bgColorBGR)
-{
+void drawString5x7(u_char col, u_char row, char *string, u_int fgColorBGR, u_int bgColorBGR) {
   u_char cols = col;
   while (*string) {
     drawChar5x7(cols, row, *string++, fgColorBGR, bgColorBGR);
@@ -103,9 +95,7 @@ void drawString5x7(u_char col, u_char row, char *string,
  *  \param height Height of rectangle
  *  \param colorBGR Color of rectangle in BGR
  */
-void drawRectOutline(u_char colMin, u_char rowMin, u_char width, u_char height,
-		     u_int colorBGR)
-{
+void drawRectOutline(u_char colMin, u_char rowMin, u_char width, u_char height, u_int colorBGR) {
   /**< top & bot */
   fillRectangle(colMin, rowMin, width, 1, colorBGR);
   fillRectangle(colMin, rowMin + height, width, 1, colorBGR);
