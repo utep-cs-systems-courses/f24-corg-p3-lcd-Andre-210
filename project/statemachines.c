@@ -50,5 +50,5 @@ void next_state(int state) {
   }
   // turn on the green led to indicate that the MSP ready for the next step.
   green_led_on();
-  clearScreen(COLOR_BLUE);
+  drawDefault();
 }
