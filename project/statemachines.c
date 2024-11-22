@@ -17,7 +17,7 @@ void next_state(int state) {
     leds_off();
     red_led_on();
     //drawZeldasLullaby();
-    drawHarp(screenWidth / 2, screenHeight / 3, 60);
+    drawHarp(screenWidth / 2, screenHeight / 3, 60, COLOR_BROWN, "Zelda's Lullaby");
     zeldas_lullaby();
     //oot(); // added
     //tp();
@@ -29,7 +29,7 @@ void next_state(int state) {
     red_led_on();
     //drawOOT();
     //drawDefault(COLOR_TURQUOISE, "Ocarina of Time");
-    drawHyruleShieldWithSword(64, 50, 40); // Draw the Hyrule Shield at center
+    drawHyruleShieldWithSword(64, 50, 40, COLOR_FOREST_GREEN, "Ocarina of Time"); // Draw the Hyrule Shield at center
     oot();
     //tp();
     leds_off();
@@ -39,7 +39,7 @@ void next_state(int state) {
     leds_off();
     red_led_on();
     //drawSOH();
-    drawMajorasMask(screenWidth / 2 - 17 * 4 / 2, screenHeight / 2 - 17 * 4 / 2, 4);
+    drawHarp(screenWidth / 2, screenHeight / 3, 60, COLOR_PURPLE, "Majora's Mask");
     soh();
     //oot(); // added
     //tp();
@@ -50,7 +50,7 @@ void next_state(int state) {
     leds_off();
     red_led_on();
     //drawTP();
-    drawDefault(COLOR_FOREST_GREEN, "Twilight Princess");
+    drawHyruleShieldWithSword(64, 50, 40, COLOR_DARK_GREEN, "Twilight Princess"); // Draw the Hyrule Shield at center
     tp();
     //oot(); // added
     leds_off();
