@@ -18,7 +18,7 @@ void buzzer_set_period(short cycles) {
   CCR1 = cycles >> 1;	
 }
 
-void playTune(int *notes, int*tempo, int noteAmt) {
+void playTune(const int *notes, const int*tempo, int noteAmt) {
   for(int i = 0; i < noteAmt; i++) {
     if((i % 2) == 0 ) {
       red_led_on();
@@ -59,29 +59,33 @@ void oot() { // Ocarina of Time Theme
   int noteAmt = sizeof(notes)/sizeof(notes[0]);
   playTune(notes,tempo,noteAmt);
   // reset the buzzer state
-  buzzer_set_period(bk); // CHANGED FROM bk TO 0
+  buzzer_set_period(0); // CHANGED FROM bk TO 0
 }
 
 void soh() { // Song of Healing
   // notes for song (store in flash)
-  const int notes[] = {F3, B4, C4, A4, C4, F4, C4, F3, B4, C4, A4, C4, F4, C4, F3, B4, C4, A4, E4, D4, C4, E4, E3, B3, B3, B3, F3, B4, C4, A4, C4, F4, C4, F3, B4, C4, A4, C4, F4, C4, F3, B4, C4};
+  //const int notes[] = {F3, B4, C4, A4, C4, F4, C4, F3, B4, C4, A4, C4, F4, C4, F3, B4, C4, A4, E4, D4, C4, E4, E3, B3, F3, B4, C4, A4, C4, F4, C4, F3, B4, C4, A4, C4, F4, C4, F3, B4, C4};
   // tempo for each note (store in flash)
-  const int tempo[] = {500, 500, 400, 400, 400, 500, 400, 500, 500, 400, 400, 400, 500, 400, 500, 500, 400, 400, 400, 500, 500, 500, 600, 600, 600, 600, 600, 500, 500, 400, 400, 400, 500, 400, 500, 500, 400, 400, 400, 500, 400, 500, 500, 400}; 
+  //const int tempo[] = {800, 800, 600, 600, 600, 800, 600, 800, 800, 600, 600, 600, 800, 800, 800, 800, 600, 600, 600, 800, 800, 800, 900, 900, 900, 800, 800, 600, 600, 600, 800, 600, 800, 800, 600, 600, 600, 800, 600, 800, 800, 600}; 
+  const int notes[] = {F3, B4, C4, A4, C4, F4, C4, F3, B4, C4, A4, C4, F4, C4, F3, B4, C4, A4, E4, D4, C4, E4, E3, B3, F3, B4, C4, A4};
+  const int tempo[] = {800, 800, 600, 600, 600, 800, 600, 800, 800, 600, 600, 600, 800, 800, 800, 800, 600, 600, 600, 800, 800, 800, 900, 900, 900, 800, 800, 600};
   // play the song
   int noteAmt = sizeof(notes)/sizeof(notes[0]);
   playTune(notes,tempo,noteAmt);
   // reset the buzzer state
-  buzzer_set_period(bk); // CHANGED FROM bk TO 0
+  buzzer_set_period(0); // CHANGED FROM bk TO 0
 }
 
 void tp() { // Twilight Princess Theme
   // notes for the song (store in flash)
-  const int notes[] = {D3, E3, F3, A3, C4, E4, D3, E3, F3, A3, C4, E4, D3, E3, F3, A3, C4, E4, G4, E4, C4, A3, F3, E3, A4, F5, E5, C5, B4, A4, G4, B4, D6, A6, E6, D6};
+  //const int notes[] = {D3, E3, F3, A3, C4, E4, D3, E3, F3, A3, C4, E4, D3, E3, F3, A3, C4, E4, G4, E4, C4, A3, F3, E3, A4, F5, E5, C5, B4, A4, G4, B4, D6, A6, E6, D6};
   // tempo for each note (store in flash)
-  const int tempo[] = {400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 500, 400, 400, 400, 400, 400, 400, 400, 300, 300, 300, 300};
+  //const int tempo[] = {400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 500, 400, 400, 400, 400, 400, 400, 400, 300, 300, 300, 300};
+  const int notes[] = {D3, E3, F3, A3, C4, E4, D3, E3, F3, A3, C4, E4, D3, E3, F3, A3, C4, E4, G4, E4, C4, A3, F3, E3, A4, F5, E5, C5, B4, A4};
+  const int tempo[] = {400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 500, 400, 400, 400, 400, 400};
   // play the song
   int noteAmt = sizeof(notes)/sizeof(notes[0]);
   playTune(notes,tempo,noteAmt);
   // reset the buzzer state
-  buzzer_set_period(bk); // CHANGED FROM bk TO 0
+  buzzer_set_period(0); // CHANGED FROM bk TO 0
 }
