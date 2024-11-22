@@ -80,10 +80,11 @@ void drawDefault(u_int colorBGR, const char *name) {
 
 void drawHyruleShield(u_int x, u_int y, u_int size) {
   u_int shieldColor = COLOR_BLUE;   // Base color of the shield
-  u_int trimColor = COLOR_SILVER;  // Color for shield trim
+  u_int trimColor = COLOR_GRAY;  // Color for shield trim
   u_int emblemColor = COLOR_RED;   // Color for the Hyrule crest
   u_int triforceColor = COLOR_GOLD; // Color for the Triforce
 
+  clearScreen(COLOR_DARK_GREEN);
   // Outer shape (shield trim)
   for (int row = 0; row < size; row++) {
     for (int col = -row; col <= row; col++) {
