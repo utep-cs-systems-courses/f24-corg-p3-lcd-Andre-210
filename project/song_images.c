@@ -194,44 +194,22 @@ void drawMajorasMask(u_int x, u_int y, u_int pixelSize) {
   clearScreen(COLOR_GRAY);
 
   // Colors for the mask
-  u_int maskRed = COLOR_RED;
-  u_int maskYellow = COLOR_YELLOW;
-  u_int maskBlue = COLOR_BLUE;
-  u_int maskBlack = COLOR_BLACK;
-  u_int maskWhite = COLOR_WHITE;
-  u_int maskCyan = COLOR_CYAN;
-
-  // Pixel map (1 = red, 2 = yellow, 3 = blue, 4 = black, 5 = white, 6 = cyan)
-  const int maskPattern[15][15] = {
-    {0, 0, 0, 3, 3, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0},
-    {0, 0, 3, 1, 1, 3, 3, 1, 1, 3, 0, 0, 0, 0, 0},
-    {0, 3, 1, 5, 5, 1, 1, 5, 5, 1, 3, 0, 0, 0, 0},
-    {0, 3, 1, 5, 4, 4, 4, 4, 4, 5, 1, 3, 0, 0, 0},
-    {3, 1, 1, 5, 4, 6, 6, 4, 4, 4, 5, 1, 1, 3, 0},
-    {3, 1, 1, 1, 4, 4, 4, 4, 6, 6, 4, 1, 1, 3, 0},
-    {3, 1, 1, 1, 4, 4, 4, 4, 4, 4, 4, 1, 1, 3, 0},
-    {3, 1, 1, 5, 4, 4, 4, 4, 6, 6, 4, 5, 1, 3, 0},
-    {0, 3, 1, 5, 4, 4, 4, 4, 4, 4, 5, 1, 3, 0, 0},
-    {0, 0, 3, 1, 1, 1, 1, 4, 4, 1, 1, 3, 0, 0, 0},
-    {0, 0, 0, 3, 1, 1, 1, 1, 1, 1, 3, 0, 0, 0, 0},
-    {0, 0, 0, 0, 3, 1, 1, 1, 1, 3, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0},
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+  u_int colors[] = {
+    COLOR_GRAY, COLOR_RED, COLOR_YELLOW, COLOR_BLUE, COLOR_BLACK, COLOR_WHITE, COLOR_CYAN
   };
 
-  // Draw each pixel in the mask pattern
+  // Compressed mask pattern (hex digits: 0=GRAY, 1=RED, 2=YELLOW, 3=BLUE, etc.)
+  const char maskPattern[] = {
+    0x00333, 0x03113, 0x31115, 0x31544, 0x11546, 0x11146, 0x11144,
+    0x11546, 0x31544, 0x03113, 0x00333, 0x00311, 0x00033, 0x00003, 0x00000
+  };
+
+  // Draw each row of the mask
   for (int row = 0; row < 15; row++) {
+    int pattern = maskPattern[row];
     for (int col = 0; col < 15; col++) {
-      u_int color = COLOR_GRAY; // Default to background
-      switch (maskPattern[row][col]) {
-        case 1: color = maskRed; break;
-        case 2: color = maskYellow; break;
-        case 3: color = maskBlue; break;
-        case 4: color = maskBlack; break;
-        case 5: color = maskWhite; break;
-        case 6: color = maskCyan; break;
-      }
+      int colorIndex = (pattern >> (4 * (14 - col))) & 0xF; // Extract each hex digit
+      u_int color = colors[colorIndex]; // Get corresponding color
 
       // Draw the pixel as a rectangle
       for (int dy = 0; dy < pixelSize; dy++) {
