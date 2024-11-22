@@ -38,17 +38,17 @@ void playTune(const int *notes, const int*tempo, int noteAmt) {
   leds_off();                           // endsure leds are off
 }
 
-void zeldas_lullaby() { // Zelda's Lullaby
+//void zeldas_lullaby() { // Zelda's Lullaby
   // notes for song (store in flash)
-  const int notes[] = {C3, G3, E4, C3, A3, Fsharp4, C3, G3, E4, C3, A3, Fsharp4, C3, B4, G3};
+  //const int notes[] = {C3, G3, E4, C3, A3, Fsharp4, C3, G3, E4, C3, A3, Fsharp4, C3, B4, G3};
   // tempo for each note (store in flash)
-  const int tempo[] = {500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 750, 250, 500};
+  //const int tempo[] = {500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 750, 250, 500};
   // play the song
-  int noteAmt = sizeof(notes)/sizeof(notes[0]);
-  playTune(notes,tempo,noteAmt);
+  //int noteAmt = sizeof(notes)/sizeof(notes[0]);
+  //playTune(notes,tempo,noteAmt);
   // reset the buzzer state
-  buzzer_set_period(0); // CHANGED FROM bk TO 0
-}
+  //buzzer_set_period(0); // CHANGED FROM bk TO 0
+//}
 
 void oot() { // Ocarina of Time Theme
   // notes for song (store in flash)
@@ -62,30 +62,30 @@ void oot() { // Ocarina of Time Theme
   buzzer_set_period(0); // CHANGED FROM bk TO 0
 }
 
-void soh() { // Song of Healing
+//void soh() { // Song of Healing
   // notes for song (store in flash)
   //const int notes[] = {F3, B4, C4, A4, C4, F4, C4, F3, B4, C4, A4, C4, F4, C4, F3, B4, C4, A4, E4, D4, C4, E4, E3, B3, F3, B4, C4, A4, C4, F4, C4, F3, B4, C4, A4, C4, F4, C4, F3, B4, C4};
   // tempo for each note (store in flash)
   //const int tempo[] = {800, 800, 600, 600, 600, 800, 600, 800, 800, 600, 600, 600, 800, 800, 800, 800, 600, 600, 600, 800, 800, 800, 900, 900, 900, 800, 800, 600, 600, 600, 800, 600, 800, 800, 600, 600, 600, 800, 600, 800, 800, 600}; 
-  const int notes[] = {F3, B4, C4, A4, C4, F4, C4, F3, B4, C4, A4, C4, F4, C4, F3, B4, C4, A4, E4, D4, C4, E4, E3};
-  const int tempo[] = {800, 800, 600, 600, 600, 800, 600, 800, 800, 600, 600, 600, 800, 800, 800, 800, 600, 600, 600, 800, 800, 800, 900};
+  //const int notes[] = {F3, B4, C4, A4, C4, F4, C4, F3, B4, C4, A4, C4, F4, C4, F3, B4, C4, A4, E4, D4, C4, E4, E3};
+//const int tempo[] = {800, 800, 600, 600, 600, 800, 600, 800, 800, 600, 600, 600, 800, 800, 800, 800, 600, 600, 600, 800, 800, 800, 900};
   // play the song
-  int noteAmt = sizeof(notes)/sizeof(notes[0]);
-  playTune(notes,tempo,noteAmt);
+  //int noteAmt = sizeof(notes)/sizeof(notes[0]);
+  //playTune(notes,tempo,noteAmt);
   // reset the buzzer state
-  buzzer_set_period(0); // CHANGED FROM bk TO 0
-}
+  //buzzer_set_period(0); // CHANGED FROM bk TO 0
+//}
 
-void tp() { // Twilight Princess Theme
+//void tp() { // Twilight Princess Theme
   // notes for the song (store in flash)
   //const int notes[] = {D3, E3, F3, A3, C4, E4, D3, E3, F3, A3, C4, E4, D3, E3, F3, A3, C4, E4, G4, E4, C4, A3, F3, E3, A4, F5, E5, C5, B4, A4, G4, B4, D6, A6, E6, D6};
   // tempo for each note (store in flash)
   //const int tempo[] = {400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 500, 400, 400, 400, 400, 400, 400, 400, 300, 300, 300, 300};
-  const int notes[] = {D3, E3, F3, A3, C4, E4, D3, E3, F3, A3, C4, E4, D3, E3, F3, A3, C4, E4, G4, E4, C4, A3, F3, E3, A4, F5, E5, C5, B4, A4};
-  const int tempo[] = {400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 500, 400, 400, 400, 400, 400};
+  //const int notes[] = {D3, E3, F3, A3, C4, E4, D3, E3, F3, A3, C4, E4, D3, E3, F3, A3, C4, E4, G4, E4, C4, A3, F3, E3, A4, F5, E5, C5, B4, A4};
+  //const int tempo[] = {400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 500, 400, 400, 400, 400, 400};
   // play the song
-  int noteAmt = sizeof(notes)/sizeof(notes[0]);
-  playTune(notes,tempo,noteAmt);
+  //int noteAmt = sizeof(notes)/sizeof(notes[0]);
+  //playTune(notes,tempo,noteAmt);
   // reset the buzzer state
-  buzzer_set_period(0); // CHANGED FROM bk TO 0
-}
+  //buzzer_set_period(0); // CHANGED FROM bk TO 0
+//}

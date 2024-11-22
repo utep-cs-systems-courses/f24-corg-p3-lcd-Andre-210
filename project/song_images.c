@@ -3,13 +3,14 @@
 
 void drawDefault() {
   clearScreen(COLOR_BLUE);
+  u_char width = screenWidth, height = screenHeight;
   int col = 0, row = 0; 
-  int centerCol = width/2, centerRow = height/2;
-  for (row = 0; row < 20; row++) { 
+  int centerCol = width/2, centerRow = height/4;
+  for (row = 0; row < 20; row++) {
     for (col = -row; col <= row; col+=2) {
       drawPixel(centerCol + col, centerRow + row, COLOR_PINK);
-      }
     }
+  }
 }
 void drawZeldasLullaby() {
   clearScreen(COLOR_RED);

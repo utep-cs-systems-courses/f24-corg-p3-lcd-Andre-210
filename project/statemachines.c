@@ -17,7 +17,8 @@ void next_state(int state) {
     leds_off();
     red_led_on();
     drawZeldasLullaby();
-    zeldas_lullaby();
+    //zeldas_lullaby();
+    oot(); // added
     leds_off();
     break;
   case 2:
@@ -33,7 +34,8 @@ void next_state(int state) {
     leds_off();
     red_led_on();
     drawSOH();
-    soh();
+    //soh();
+    oot(); // added
     leds_off();
     break;
   case 4:
@@ -41,7 +43,8 @@ void next_state(int state) {
     leds_off();
     red_led_on();
     drawTP();
-    tp();
+    //tp();
+    oot(); // added
     leds_off();
     break;
   default:

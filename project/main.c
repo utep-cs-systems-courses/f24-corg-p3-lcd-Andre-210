@@ -6,9 +6,12 @@
 #include "lcdutils.h" // ADDED
 #include "lcddraw.h" // ADDED
 
+#include "song_images.h"
+
 int main(void) {
   configureClocks();
   lcd_init(); // ADDED
+  drawDefault();
   //u_char width = screenWidth, height = screenHeight; // ADDED
   //clearScreen(COLOR_BLUE); // ADDED
   //int col = 0, row = 0; // ADDED
