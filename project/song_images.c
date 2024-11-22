@@ -190,78 +190,55 @@ void drawHyruleShield(u_int x, u_int y, u_int size) {
   drawString5x7(20, 120, "Ocarina of Time", COLOR_RED, COLOR_DARK_GREEN);
 }
 
-//void drawSOH() {
-  //clearScreen(COLOR_BROWN);
-  //drawString5x7(10, 15, "The Legend of Zelda", COLOR_YELLOW, COLOR_BLUE);
-  // find the height and width of the screen
-  //u_char width = screenWidth, height = screenHeight;
-  // find the location of the top triangle
-  //int centerCol = width / 2, centerRow = height / 4;
-  // set the length it each triangle
-  //int sideLength = 20; 
+void drawMajorasMask(u_int x, u_int y, u_int pixelSize) {
+  clearScreen(COLOR_GRAY);
 
-  // draw the top triangle
-  //for (int row = 0; row < sideLength; row++) {
-    //for (int col = -row; col <= row; col++) {
-      //drawPixel(centerCol + col, centerRow + row, COLOR_YELLOW);
-    //}
-  //}
+  // Colors for the mask
+  u_int maskRed = COLOR_RED;
+  u_int maskYellow = COLOR_YELLOW;
+  u_int maskBlue = COLOR_BLUE;
+  u_int maskBlack = COLOR_BLACK;
+  u_int maskWhite = COLOR_WHITE;
+  u_int maskCyan = COLOR_CYAN;
 
-  // draw the bottom-left triangle
-  // find the location of the triangle
-  //int leftCenterCol = centerCol - sideLength;
-  //int leftCenterRow = centerRow + sideLength;
-  //for (int row = 0; row < sideLength; row++) {
-    //for (int col = -row; col <= row; col++) {
-      //drawPixel(leftCenterCol + col, leftCenterRow + row, COLOR_YELLOW);
-    //}
-  //}
+  // Pixel map (1 = red, 2 = yellow, 3 = blue, 4 = black, 5 = white, 6 = cyan)
+  const int maskPattern[15][15] = {
+    {0, 0, 0, 3, 3, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0},
+    {0, 0, 3, 1, 1, 3, 3, 1, 1, 3, 0, 0, 0, 0, 0},
+    {0, 3, 1, 5, 5, 1, 1, 5, 5, 1, 3, 0, 0, 0, 0},
+    {0, 3, 1, 5, 4, 4, 4, 4, 4, 5, 1, 3, 0, 0, 0},
+    {3, 1, 1, 5, 4, 6, 6, 4, 4, 4, 5, 1, 1, 3, 0},
+    {3, 1, 1, 1, 4, 4, 4, 4, 6, 6, 4, 1, 1, 3, 0},
+    {3, 1, 1, 1, 4, 4, 4, 4, 4, 4, 4, 1, 1, 3, 0},
+    {3, 1, 1, 5, 4, 4, 4, 4, 6, 6, 4, 5, 1, 3, 0},
+    {0, 3, 1, 5, 4, 4, 4, 4, 4, 4, 5, 1, 3, 0, 0},
+    {0, 0, 3, 1, 1, 1, 1, 4, 4, 1, 1, 3, 0, 0, 0},
+    {0, 0, 0, 3, 1, 1, 1, 1, 1, 1, 3, 0, 0, 0, 0},
+    {0, 0, 0, 0, 3, 1, 1, 1, 1, 3, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+  };
 
-  // draw the bottom-right triangle
-  // find the location of the triangle
-  //int rightCenterCol = centerCol + sideLength;
-  //int rightCenterRow = centerRow + sideLength;
-  //for (int row = 0; row < sideLength; row++) {
-    //for (int col = -row; col <= row; col++) {
-      //drawPixel(rightCenterCol + col, rightCenterRow + row, COLOR_YELLOW);
-    //}
-  //}
-//}
+  // Draw each pixel in the mask pattern
+  for (int row = 0; row < 15; row++) {
+    for (int col = 0; col < 15; col++) {
+      u_int color = COLOR_GRAY; // Default to background
+      switch (maskPattern[row][col]) {
+        case 1: color = maskRed; break;
+        case 2: color = maskYellow; break;
+        case 3: color = maskBlue; break;
+        case 4: color = maskBlack; break;
+        case 5: color = maskWhite; break;
+        case 6: color = maskCyan; break;
+      }
 
-//void drawTP() {
-  //clearScreen(COLOR_GREEN);
-  //drawString5x7(10, 15, "The Legend of Zelda", COLOR_YELLOW, COLOR_BLUE);
-  // find the height and width of the screen
-  //u_char width = screenWidth, height = screenHeight;
-  // find the location of the top triangle
-  //int centerCol = width / 2, centerRow = height / 4;
-  // set the length it each triangle
-  //int sideLength = 20; 
-
-  // draw the top triangle
-  //for (int row = 0; row < sideLength; row++) {
-    //for (int col = -row; col <= row; col++) {
-      //drawPixel(centerCol + col, centerRow + row, COLOR_YELLOW);
-    //}
-  //}
-
-  // draw the bottom-left triangle
-  // find the location of the triangle
-  //int leftCenterCol = centerCol - sideLength;
-  //int leftCenterRow = centerRow + sideLength;
-  //for (int row = 0; row < sideLength; row++) {
-    //for (int col = -row; col <= row; col++) {
-      //drawPixel(leftCenterCol + col, leftCenterRow + row, COLOR_YELLOW);
-    //}
-  //}
-
-  // draw the bottom-right triangle
-  // find the location of the triangle
-  //int rightCenterCol = centerCol + sideLength;
-  //int rightCenterRow = centerRow + sideLength;
-  //for (int row = 0; row < sideLength; row++) {
-    //for (int col = -row; col <= row; col++) {
-      //drawPixel(rightCenterCol + col, rightCenterRow + row, COLOR_YELLOW);
-    //}
-  //}
-//}
+      // Draw the pixel as a rectangle
+      for (int dy = 0; dy < pixelSize; dy++) {
+        for (int dx = 0; dx < pixelSize; dx++) {
+          drawPixel(x + col * pixelSize + dx, y + row * pixelSize + dy, color);
+        }
+      }
+    }
+  }
+}
