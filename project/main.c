@@ -11,13 +11,13 @@ int main(void) {
   lcd_init(); // ADDED
   u_char width = screenWidth, height = screenHeight; // ADDED
   clearScreen(COLOR_BLUE); // ADDED
-  // int col = 0, row = 0; // ADDED
-  // int centerCol = width/2, centerRow = height/2; // ADDED
-  // for (row = 0; row < 20; row++) { // ADDED
-  //for (col = -row; col <= row; col+=2) { // ADDED
-  //drawPixel(centerCol + col, centerRow + row, COLOR_PINK); // ADDED
-  // }
-  // }
+  //int col = 0, row = 0; // ADDED
+  //int centerCol = width/2, centerRow = height/2; // ADDED
+  //for (row = 0; row < 20; row++) { // ADDED
+    //for (col = -row; col <= row; col+=2) { // ADDED
+      //drawPixel(centerCol + col, centerRow + row, COLOR_PINK); // ADDED
+      //}
+    //}
   
   switch_init();              // initialize switches
   led_init();                 // initialize led
