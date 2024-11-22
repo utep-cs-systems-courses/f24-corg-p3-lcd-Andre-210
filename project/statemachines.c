@@ -50,7 +50,7 @@ void next_state(int state) {
     leds_off();
     red_led_on();
     //drawTP();
-    drawHyruleShieldWithSword(64, 50, 40, COLOR_FOREST_GREEN, "Twilight Princess"); // Draw the Hyrule Shield at center
+    drawHyruleShieldWithSword(64, 50, 40, COLOR_DARK_GREEN, "Twilight Princess"); // Draw the Hyrule Shield at center
     tp();
     //oot(); // added
     leds_off();
