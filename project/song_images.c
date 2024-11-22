@@ -193,39 +193,30 @@ void drawHyruleShield(u_int x, u_int y, u_int size) {
 void drawMajorasMask(u_int x, u_int y, u_int pixelSize) {
   clearScreen(COLOR_GRAY);
 
-  // Colors for the mask
-  u_int maskYellow = COLOR_YELLOW;
-  u_int maskRed = COLOR_RED;
-  u_int maskBlue = COLOR_BLUE;
-  u_int maskBlack = COLOR_BLACK;
+  u_int heartColor = COLOR_PURPLE;
 
-  // Simplified mask pattern
-  const int maskPattern[9][9] = {
-      {0, 0, 3, 0, 0, 0, 3, 0, 0}, // Horns
-      {0, 3, 0, 0, 0, 0, 0, 3, 0}, // Horns
-      {3, 0, 0, 0, 0, 0, 0, 0, 3}, // Frame
-      {0, 0, 1, 0, 0, 0, 1, 0, 0}, // Eyes
-      {0, 0, 1, 2, 0, 2, 1, 0, 0}, // Eyes
-      {0, 0, 0, 2, 2, 2, 0, 0, 0}, // Frame
-      {0, 0, 0, 0, 2, 0, 0, 0, 0}, // Frame
-      {0, 0, 0, 0, 2, 0, 0, 0, 0}, // Frame
-      {0, 0, 0, 0, 0, 0, 0, 0, 0}, // Base
+  // Define the heart shape using a simple pattern
+  const int heartPattern[9][9] = {
+      {0, 1, 1, 0, 0, 1, 1, 0, 0},
+      {1, 1, 1, 1, 1, 1, 1, 1, 0},
+      {1, 1, 1, 1, 1, 1, 1, 1, 1},
+      {0, 1, 1, 1, 1, 1, 1, 1, 0},
+      {0, 0, 1, 1, 1, 1, 1, 0, 0},
+      {0, 0, 0, 1, 1, 1, 0, 0, 0},
+      {0, 0, 0, 0, 1, 0, 0, 0, 0},
+      {0, 0, 0, 0, 1, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 0, 0},
   };
 
-  // Draw the simplified mask
+  // Draw the heart shape
   for (int row = 0; row < 9; row++) {
     for (int col = 0; col < 9; col++) {
-      u_int color = COLOR_GRAY; // Default to background
-      switch (maskPattern[row][col]) {
-        case 1: color = maskYellow; break; // Eyes
-        case 2: color = maskRed; break;    // Eye center
-        case 3: color = maskBlue; break;   // Horns and frame
-      }
-
-      // Draw each "pixel" of the mask
-      for (int dy = 0; dy < pixelSize; dy++) {
-        for (int dx = 0; dx < pixelSize; dx++) {
-          drawPixel(x + col * pixelSize + dx, y + row * pixelSize + dy, color);
+      if (heartPattern[row][col] == 1) {
+        // Draw each "pixel" of the heart
+        for (int dy = 0; dy < size; dy++) {
+          for (int dx = 0; dx < size; dx++) {
+            drawPixel(x + col * size + dx, y + row * size + dy, heartColor);
+          }
         }
       }
     }
