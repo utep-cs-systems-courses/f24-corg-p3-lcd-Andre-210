@@ -39,7 +39,7 @@ void next_state(int state) {
     leds_off();
     red_led_on();
     //drawSOH();
-    drawMajorasMask(screenWidth / 2 - 9 * 4 / 2, screenHeight / 2 - 9 * 4 / 2, 4);
+    drawMajorasMask(screenWidth / 2 - 17 * 4 / 2, screenHeight / 2 - 17 * 4 / 2, 4);
     soh();
     //oot(); // added
     //tp();
