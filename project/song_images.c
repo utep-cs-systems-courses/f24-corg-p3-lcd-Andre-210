@@ -41,34 +41,43 @@ void drawDefault(u_int colorBGR, const char *name) {
 }
 
 void drawHarp(u_int x, u_int y, u_int size) {
+  // Clear the screen with a background color
   clearScreen(COLOR_BROWN);
+
   u_int harpColor = COLOR_GOLD;    // Base color of the harp
   u_int stringColor = COLOR_WHITE; // Strings of the harp
+
+  // Ensure the harp is drawn within screen bounds
+  if (x - size < 0 || x + size >= screenWidth || y - size < 0 || y + size >= screenHeight) {
+    drawString5x7(10, 10, "Harp is out of bounds!", COLOR_RED, COLOR_BROWN);
+    return;
+  }
 
   // Draw the circular body of the harp
   for (int row = -size; row <= size; row++) {
     for (int col = -size; col <= size; col++) {
+      // Check if the point is within the circular outline
       if (row * row + col * col <= size * size && row * row + col * col >= (size - 5) * (size - 5)) {
-        drawPixel(x + col, y + row, harpColor); // Circular outline
+        drawPixel(x + col, y + row, harpColor);
       }
     }
   }
 
   // Draw the harp strings (vertical lines within the circle)
-  int stringSpacing = size / 6; // Space the strings evenly
+  int stringSpacing = size / 7; // Space the strings evenly across the circle
   for (int i = -3; i <= 3; i++) { // Draw 7 strings
     for (int row = -size + 5; row < size - 5; row++) {
-      if (i != 0) { // Ensure strings stay inside the circle
-        drawPixel(x + i * stringSpacing, y + row, stringColor);
-      }
+      drawPixel(x + i * stringSpacing, y + row, stringColor);
     }
   }
 
-  // Add decorative top connectors
+  // Add decorative top connectors (horizontal bar)
   for (int col = -size / 2; col <= size / 2; col++) {
     drawPixel(x + col, y - size + 5, harpColor); // Horizontal arc at the top
   }
-  drawString5x7(20, 120, "Zelda's Lullaby", COLOR_GOLD, COLOR_BROWN);
+
+  // Draw text for Zelda's Lullaby
+  drawString5x7(20, screenHeight - 20, "Zelda's Lullaby", COLOR_GOLD, COLOR_BROWN);
 }
 
 void drawHyruleShieldWithSword(u_int x, u_int y, u_int size) {
