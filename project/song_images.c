@@ -40,9 +40,9 @@ void drawDefault(u_int colorBGR, const char *name) {
   drawString5x7(35, height - 20, name, COLOR_WHITE, colorBGR);
 }
 
-void drawHarp(u_int x, u_int y, u_int size) {
+void drawHarp(u_int x, u_int y, u_int size, u_int colorBGR) {
   // Clear the screen with a background color
-  clearScreen(COLOR_BROWN);
+  clearScreen(colorBGR);
 u_int harpColor = COLOR_GOLD;   // Base color of the harp
   u_int stringColor = COLOR_WHITE; // Strings of the harp
 
@@ -79,10 +79,10 @@ u_int harpColor = COLOR_GOLD;   // Base color of the harp
   }
   
   // Draw text for Zelda's Lullaby
-  drawString5x7(20, screenHeight - 20, "Zelda's Lullaby", COLOR_GOLD, COLOR_BROWN);
+  drawString5x7(20, screenHeight - 20, "Zelda's Lullaby", COLOR_GOLD, colorBGR);
 }
 
-void drawHyruleShieldWithSword(u_int x, u_int y, u_int size) {
+void drawHyruleShieldWithSword(u_int x, u_int y, u_int size, u_int colorBGR) {
   clearScreen(COLOR_DARK_GREEN);
   u_int shieldColor = COLOR_BLUE;    // Base color of the shield
   u_int trimColor = COLOR_GRAY;      // Shield trim color
@@ -123,10 +123,10 @@ void drawHyruleShieldWithSword(u_int x, u_int y, u_int size) {
   }
 
   // Now draw the shield on top of the sword
-  drawHyruleShield(x, y, size);
+  drawHyruleShield(x, y, size, u_int colorBGR);
 }
 
-void drawHyruleShield(u_int x, u_int y, u_int size) {
+void drawHyruleShield(u_int x, u_int y, u_int size, u_int colorBGR) {
   u_int shieldColor = COLOR_BLUE;    // Base color of the shield
   u_int trimColor = COLOR_GRAY;      // Shield trim color
   u_int triforceColor = COLOR_GOLD;  // Triforce color
@@ -187,41 +187,5 @@ void drawHyruleShield(u_int x, u_int y, u_int size) {
       drawPixel(x + col, y + row, trimColor);
     }
   }
-  drawString5x7(20, 120, "Ocarina of Time", COLOR_RED, COLOR_DARK_GREEN);
-}
-
-void drawMajorasMask(u_int x, u_int y, u_int pixelSize) {
-  clearScreen(COLOR_GRAY);
-
-  u_int heartColor = COLOR_PURPLE;
-
-  // Define the larger heart shape using a 17x17 grid pattern
-  const int heartPattern[17][17] = {
-      {0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0},
-      {0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0},
-      {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0},
-      {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0},
-      {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
-      {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0},
-      {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0},
-      {0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-  };
-
-  // Draw the heart shape
-  for (int row = 0; row < 17; row++) {
-    for (int col = 0; col < 17; col++) {
-      if (heartPattern[row][col] == 1) {
-        // Draw each "pixel" of the heart
-        for (int dy = 0; dy < pixelSize; dy++) {
-          for (int dx = 0; dx < pixelSize; dx++) {
-            drawPixel(x + col * pixelSize + dx, y + row * pixelSize + dy, heartColor);
-          }
-        }
-      }
-    }
-  }
+  drawString5x7(20, 120, "Ocarina of Time", COLOR_RED, colorBGR);
 }
