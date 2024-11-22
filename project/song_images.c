@@ -195,27 +195,30 @@ void drawMajorasMask(u_int x, u_int y, u_int size) {
 
   u_int heartColor = COLOR_PURPLE;
 
-  // Define the heart shape using a simple pattern
-  const int heartPattern[9][9] = {
-      {0, 1, 1, 0, 0, 1, 1, 0, 0},
-      {1, 1, 1, 1, 1, 1, 1, 1, 0},
-      {1, 1, 1, 1, 1, 1, 1, 1, 1},
-      {0, 1, 1, 1, 1, 1, 1, 1, 0},
-      {0, 0, 1, 1, 1, 1, 1, 0, 0},
-      {0, 0, 0, 1, 1, 1, 0, 0, 0},
-      {0, 0, 0, 0, 1, 0, 0, 0, 0},
-      {0, 0, 0, 0, 1, 0, 0, 0, 0},
-      {0, 0, 0, 0, 0, 0, 0, 0, 0},
+  // Define the larger heart shape using a 17x17 grid pattern
+  const int heartPattern[17][17] = {
+      {0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0},
+      {0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0},
+      {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0},
+      {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0},
+      {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0},
+      {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0},
+      {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0},
+      {0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
   };
 
   // Draw the heart shape
-  for (int row = 0; row < 9; row++) {
-    for (int col = 0; col < 9; col++) {
+  for (int row = 0; row < 17; row++) {
+    for (int col = 0; col < 17; col++) {
       if (heartPattern[row][col] == 1) {
         // Draw each "pixel" of the heart
-        for (int dy = 0; dy < size; dy++) {
-          for (int dx = 0; dx < size; dx++) {
-            drawPixel(x + col * size + dx, y + row * size + dy, heartColor);
+        for (int dy = 0; dy < pixelSize; dy++) {
+          for (int dx = 0; dx < pixelSize; dx++) {
+            drawPixel(x + col * pixelSize + dx, y + row * pixelSize + dy, heartColor);
           }
         }
       }
