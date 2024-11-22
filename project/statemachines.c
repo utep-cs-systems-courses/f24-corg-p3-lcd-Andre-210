@@ -39,7 +39,7 @@ void next_state(int state) {
     leds_off();
     red_led_on();
     //drawSOH();
-    drawDefault(COLOR_RED, "Song of Healing");
+    drawMajorasMask(screenWidth / 2 - 15 * 4 / 2, screenHeight / 2 - 15 * 4 / 2, 4);
     soh();
     //oot(); // added
     //tp();
