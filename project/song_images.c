@@ -78,6 +78,50 @@ void drawDefault(u_int colorBGR, const char *name) {
   //}
 //}
 
+void drawHyruleShieldWithSword(u_int x, u_int y, u_int size) {
+  clearScreen(COLOR_DARK_GREEN);
+  u_int shieldColor = COLOR_BLUE;    // Base color of the shield
+  u_int trimColor = COLOR_GRAY;      // Shield trim color
+  u_int triforceColor = COLOR_GOLD;  // Triforce color
+  u_int crestColor = COLOR_RED;      // Crest color
+  u_int borderColor = COLOR_BLACK;   // Border color
+  u_int swordBladeColor = COLOR_GRAY; // Sword blade color
+  u_int swordHiltColor = COLOR_BLUE; // Sword hilt color
+  u_int swordAccentColor = COLOR_YELLOW; // Sword accent color
+
+  // Draw the sword (straight vertical line through the shield)
+  int swordWidth = size / 10; // Thickness of the sword blade
+  int swordHeight = size * 2; // Height of the sword blade
+
+  // Sword blade
+  for (int row = -swordHeight / 2; row < swordHeight / 2; row++) {
+    for (int col = -swordWidth; col <= swordWidth; col++) {
+      drawPixel(x + col, y + row, swordBladeColor);
+    }
+  }
+
+  // Sword hilt (horizontal part of the sword)
+  int hiltWidth = size / 2;
+  int hiltThickness = size / 8;
+
+  for (int row = -hiltThickness; row <= hiltThickness; row++) {
+    for (int col = -hiltWidth; col <= hiltWidth; col++) {
+      drawPixel(x + col, y - swordHeight / 3 + row, swordHiltColor);
+    }
+  }
+
+  // Sword hilt accent (yellow part in the center)
+  int accentWidth = hiltWidth / 3;
+  for (int row = -hiltThickness / 2; row <= hiltThickness / 2; row++) {
+    for (int col = -accentWidth; col <= accentWidth; col++) {
+      drawPixel(x + col, y - swordHeight / 3 + row, swordAccentColor);
+    }
+  }
+
+  // Now draw the shield on top of the sword
+  drawHyruleShield(x, y, size);
+}
+
 void drawHyruleShield(u_int x, u_int y, u_int size) {
   clearScreen(COLOR_DARK_GREEN);
   u_int shieldColor = COLOR_BLUE;    // Base color of the shield
