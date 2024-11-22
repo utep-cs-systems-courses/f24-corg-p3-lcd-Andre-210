@@ -40,43 +40,42 @@ void drawDefault(u_int colorBGR, const char *name) {
   drawString5x7(35, height - 20, name, COLOR_WHITE, colorBGR);
 }
 
-//void drawZeldasLullaby() {
-  //clearScreen(COLOR_RED);
-  //drawString5x7(10, 15, "The Legend of Zelda", COLOR_YELLOW, COLOR_BLUE);
-  // find the height and width of the screen
-  //u_char width = screenWidth, height = screenHeight;
-  // find the location of the top triangle
-  //int centerCol = width / 2, centerRow = height / 4;
-  // set the length it each triangle
-  //int sideLength = 20; 
+void drawHarp(u_int x, u_int y, u_int size) {
+  u_int harpColor = COLOR_GOLD;   // Base color of the harp
+  u_int stringColor = COLOR_WHITE; // Strings of the harp
 
-  // draw the top triangle
-  //for (int row = 0; row < sideLength; row++) {
-    //for (int col = -row; col <= row; col++) {
-      //drawPixel(centerCol + col, centerRow + row, COLOR_YELLOW);
-    //}
-  //}
+  // Draw the base of the harp (semi-circle arc)
+  for (int row = 0; row < size / 2; row++) {
+    for (int col = -row; col <= row; col++) {
+      drawPixel(x + col, y + row, harpColor);
+    }
+  }
 
-  // draw the bottom-left triangle
-  // find the location of the triangle
-  //int leftCenterCol = centerCol - sideLength;
-  //int leftCenterRow = centerRow + sideLength;
-  //for (int row = 0; row < sideLength; row++) {
-    //for (int col = -row; col <= row; col++) {
-      //drawPixel(leftCenterCol + col, leftCenterRow + row, COLOR_YELLOW);
-    //}
-  //}
+  // Draw the left and right decorative arms
+  for (int row = 0; row < size / 2; row++) {
+    for (int col = -size / 8; col <= size / 8; col++) {
+      // Left arm
+      drawPixel(x - size / 2 + col, y + row, harpColor);
+      // Right arm
+      drawPixel(x + size / 2 + col, y + row, harpColor);
+    }
+  }
 
-  // draw the bottom-right triangle
-  // find the location of the triangle
-  //int rightCenterCol = centerCol + sideLength;
-  //int rightCenterRow = centerRow + sideLength;
-  //for (int row = 0; row < sideLength; row++) {
-    //for (int col = -row; col <= row; col++) {
-      //drawPixel(rightCenterCol + col, rightCenterRow + row, COLOR_YELLOW);
-    //}
-  //}
-//}
+  // Draw the harp strings
+  int stringSpacing = size / 10;
+  for (int i = 0; i <= 6; i++) { // Draw 7 strings
+    for (int row = 0; row < size / 2; row++) {
+      drawPixel(x - size / 3 + i * stringSpacing, y + row, stringColor);
+    }
+  }
+
+  // Add decorative details (small arcs for top and bottom edges)
+  for (int row = size / 2 - 3; row < size / 2; row++) {
+    for (int col = -row / 2; col <= row / 2; col++) {
+      drawPixel(x + col, y + row + size / 2, harpColor); // Bottom arc
+    }
+  }
+}
 
 void drawHyruleShieldWithSword(u_int x, u_int y, u_int size) {
   clearScreen(COLOR_DARK_GREEN);
