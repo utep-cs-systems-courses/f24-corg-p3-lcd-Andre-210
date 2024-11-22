@@ -89,34 +89,71 @@ void playTune(const uint8_t *notes, const uint8_t *tempo, int noteAmt) {
 }
 
 void zeldas_lullaby() { // Zelda's Lullaby
-  const uint8_t notes[] = {NOTE_C3, NOTE_G3, NOTE_E4, NOTE_C3, NOTE_A3, NOTE_Fsharp4,
-			   NOTE_C3, NOTE_G3, NOTE_E4, NOTE_C3, NOTE_A3, NOTE_Fsharp4,
-			   NOTE_C3, NOTE_B4, NOTE_G3, NOTE_E4, NOTE_D5, NOTE_C3,
-			   NOTE_B4
-                          };
-  const uint8_t tempo[] = {5, 5, 5, 5, 5, 5,
-			   5, 5, 5, 5, 5, 5,
-			   7, 3, 5, 5, 5, 7,
-			   3
-                          };
-  int noteAmt = sizeof(notes) / sizeof(notes[0]);
-  playTune(notes, tempo, noteAmt);
-  buzzer_set_period(0);
+  // Patterns for unique segments
+    const uint8_t pattern1_notes[] = {NOTE_C3, NOTE_G3, NOTE_E4, NOTE_C3, NOTE_A3, NOTE_Fsharp4};
+    const uint8_t pattern2_notes[] = {NOTE_C3, NOTE_B4, NOTE_G3};
+
+    const uint8_t pattern1_tempo[] = {5, 5, 5, 5, 5, 5};
+    const uint8_t pattern2_tempo[] = {7, 3, 5};
+
+    // Sequence of patterns to play
+    const uint8_t sequence[] = {1, 1, 2};
+
+    // Play each pattern in sequence
+    for (int i = 0; i < sizeof(sequence) / sizeof(sequence[0]); i++) {
+        switch (sequence[i]) {
+            case 1:
+                playTune(pattern1_notes, pattern1_tempo, sizeof(pattern1_notes) / sizeof(pattern1_notes[0]));
+                break;
+            case 2:
+                playTune(pattern2_notes, pattern2_tempo, sizeof(pattern2_notes) / sizeof(pattern2_notes[0]));
+                break;
+        }
+    }
+
+    // Reset the buzzer state
+    buzzer_set_period(0); // Turn off buzzer
 }
 void oot() { // Ocarina of Time Theme
-  const uint8_t notes[] = {NOTE_F2, NOTE_F3, NOTE_A3, NOTE_D4, NOTE_E4, NOTE_C2,
-                           NOTE_G3, NOTE_B3, NOTE_D4, NOTE_E4, NOTE_F2, NOTE_C3,
-                           NOTE_F3, NOTE_A3, NOTE_D4, NOTE_E4, NOTE_C2, NOTE_G2,
-                           NOTE_E3, NOTE_B3, NOTE_D4, NOTE_E4, NOTE_D5, NOTE_D6,
-			   NOTE_F2, NOTE_C3, NOTE_F3, NOTE_A3, NOTE_D4};
-  const uint8_t tempo[] = {13, 3, 3, 3, 13, 13,
-			   3, 3, 3, 13, 13, 6,
-                           5, 5, 5, 13, 6, 5,
-                           5, 5, 4, 5, 5, 13,
-                           6, 3, 3, 3, 3, 6,
-                           13, 3, 3};
-  int noteAmt = sizeof(notes) / sizeof(notes[0]);
-  playTune(notes, tempo, noteAmt);
+  // Patterns for unique segments
+    const uint8_t pattern1_notes[] = {NOTE_F2, NOTE_F3, NOTE_A3, NOTE_D4, NOTE_E4};
+    const uint8_t pattern2_notes[] = {NOTE_C2, NOTE_G3, NOTE_B3, NOTE_D4, NOTE_E4};
+    const uint8_t pattern3_notes[] = {NOTE_C3, NOTE_F3, NOTE_A3, NOTE_D4, NOTE_E4};
+    const uint8_t pattern4_notes[] = {NOTE_G2, NOTE_E3, NOTE_B3, NOTE_D4, NOTE_E4};
+    const uint8_t pattern5_notes[] = {NOTE_D5, NOTE_D6};
+
+    const uint8_t pattern1_tempo[] = {13, 3, 3, 3, 13};
+    const uint8_t pattern2_tempo[] = {13, 3, 3, 3, 13};
+    const uint8_t pattern3_tempo[] = {6, 5, 5, 5, 13};
+    const uint8_t pattern4_tempo[] = {6, 5, 5, 5, 4};
+    const uint8_t pattern5_tempo[] = {5, 13};
+
+    // Sequence of patterns to play
+    const uint8_t sequence[] = {1, 2, 3, 1, 4, 5, 3, 1};
+
+    // Play each pattern in sequence
+    for (int i = 0; i < sizeof(sequence) / sizeof(sequence[0]); i++) {
+        switch (sequence[i]) {
+            case 1:
+                playTune(pattern1_notes, pattern1_tempo, sizeof(pattern1_notes) / sizeof(pattern1_notes[0]));
+                break;
+            case 2:
+                playTune(pattern2_notes, pattern2_tempo, sizeof(pattern2_notes) / sizeof(pattern2_notes[0]));
+                break;
+            case 3:
+                playTune(pattern3_notes, pattern3_tempo, sizeof(pattern3_notes) / sizeof(pattern3_notes[0]));
+                break;
+            case 4:
+                playTune(pattern4_notes, pattern4_tempo, sizeof(pattern4_notes) / sizeof(pattern4_notes[0]));
+                break;
+            case 5:
+                playTune(pattern5_notes, pattern5_tempo, sizeof(pattern5_notes) / sizeof(pattern5_notes[0]));
+                break;
+        }
+    }
+
+    // Reset the buzzer state
+    buzzer_set_period(0); // Turn off buzzer
 }
 
 //void soh() { // Song of Healing
@@ -134,20 +171,38 @@ void oot() { // Ocarina of Time Theme
 //}
 
 void tp() { // Twilight Princess Theme
-  const uint8_t notes[] = {NOTE_D3, NOTE_E3, NOTE_F3, NOTE_A3, NOTE_C4, NOTE_E4,
-			   NOTE_D3, NOTE_E3, NOTE_F3, NOTE_A3, NOTE_C4, NOTE_E4,
-			   NOTE_D3, NOTE_E3, NOTE_F3, NOTE_A3, NOTE_C4, NOTE_E4,
-			   NOTE_G4, NOTE_E4, NOTE_C4, NOTE_A3, NOTE_F3, NOTE_E3,
-			   NOTE_A4, NOTE_F5, NOTE_E5, NOTE_C5, NOTE_B4, NOTE_A4,
-			   NOTE_G4
-                          };
-  const uint8_t tempo[] = {4, 4, 4, 4, 4, 4,
-			   4, 4, 4, 4, 4, 4,
-			   3, 3, 3, 3, 3, 3,
-			   3, 3, 3, 3, 3, 3,
-			   5, 4, 4, 4, 4, 4,
-                          };
-  int noteAmt = sizeof(notes) / sizeof(notes[0]);
-  playTune(notes, tempo, noteAmt);
-  buzzer_set_period(0);
+     // Patterns for unique segments (encoded as IDs)
+    const uint8_t pattern1_notes[] = {NOTE_D3, NOTE_E3, NOTE_F3, NOTE_A3, NOTE_C4, NOTE_E4};
+    const uint8_t pattern2_notes[] = {NOTE_G4, NOTE_E4, NOTE_C4, NOTE_A3, NOTE_F3, NOTE_E3};
+    const uint8_t pattern3_notes[] = {NOTE_A4, NOTE_F5, NOTE_E5, NOTE_C5, NOTE_B4, NOTE_A4};
+    const uint8_t pattern4_notes[] = {NOTE_G4, NOTE_B4, NOTE_D6, NOTE_A6, NOTE_E6, NOTE_D6};
+
+    const uint8_t pattern1_tempo[] = {4, 4, 4, 4, 4, 4};
+    const uint8_t pattern2_tempo[] = {3, 3, 3, 3, 3, 3};
+    const uint8_t pattern3_tempo[] = {5, 4, 4, 4, 4, 4};
+    const uint8_t pattern4_tempo[] = {3, 3, 3, 3, 3, 3};
+
+    // Sequence of patterns to play
+    const uint8_t sequence[] = {1, 1, 1, 2, 2, 3, 4};
+
+    // Play each pattern in sequence
+    for (int i = 0; i < sizeof(sequence) / sizeof(sequence[0]); i++) {
+        switch (sequence[i]) {
+            case 1:
+                playTune(pattern1_notes, pattern1_tempo, sizeof(pattern1_notes) / sizeof(pattern1_notes[0]));
+                break;
+            case 2:
+                playTune(pattern2_notes, pattern2_tempo, sizeof(pattern2_notes) / sizeof(pattern2_notes[0]));
+                break;
+            case 3:
+                playTune(pattern3_notes, pattern3_tempo, sizeof(pattern3_notes) / sizeof(pattern3_notes[0]));
+                break;
+            case 4:
+                playTune(pattern4_notes, pattern4_tempo, sizeof(pattern4_notes) / sizeof(pattern4_notes[0]));
+                break;
+        }
+    }
+
+    // Reset the buzzer state
+    buzzer_set_period(0); // Turn off buzzer
 }
