@@ -17,8 +17,8 @@ void next_state(int state) {
     leds_off();
     red_led_on();
     // clearScreen(COLOR_RED);
-    //drawFurEliseImage();
-    fur_Elise();
+    drawFurEliseImage();
+    zeldas_lullaby();
     //main();
     //buzzer_set_period(1000);
     leds_off();
@@ -29,7 +29,7 @@ void next_state(int state) {
     red_led_on();
     //clearScreen(COLOR_ORANGE);
     drawHappyBdayImage();
-    happy_Bday();
+    oot();
     //buzzer_set_period(1000);
     leds_off();
     break;
@@ -39,7 +39,7 @@ void next_state(int state) {
     red_led_on();
     //clearScreen(COLOR_BROWN);
     drawMarioImage();
-    Mario(); // CHRISTMAS NOT MARIO
+    soh();
     //buzzer_set_period(1000);
     leds_off();
     break;
@@ -49,7 +49,7 @@ void next_state(int state) {
     red_led_on();
     //clearScreen(COLOR_GREEN);
     drawRunaweyImage();
-    runawey();
+    tp();
     //buzzer_set_period(1000);
     leds_off();
     break;
