@@ -39,10 +39,10 @@ void playTune(int *notes, int*tempo, int noteAmt) {
 }
 
 void zeldas_lullaby() { // Zelda's Lullaby
-  // notes for song
-  int notes[] = {C3, G3, E4, C3, A3, Fsharp4, C3, G3, E4, C3, A3, Fsharp4, C3, B4, G3};
-  // tempo for each note
-  int tempo[] = {500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 750, 250, 500};
+  // notes for song (store in flash)
+  const int notes[] = {C3, G3, E4, C3, A3, Fsharp4, C3, G3, E4, C3, A3, Fsharp4, C3, B4, G3};
+  // tempo for each note (store in flash)
+  const int tempo[] = {500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 750, 250, 500};
   // play the song
   int noteAmt = sizeof(notes)/sizeof(notes[0]);
   playTune(notes,tempo,noteAmt);
@@ -51,10 +51,10 @@ void zeldas_lullaby() { // Zelda's Lullaby
 }
 
 void oot() { // Ocarina of Time Theme
-  // notes for song
-  int notes[] = {F2, F3, A3, D4, E4, C2, G3, B3, D4, E4, F2, C3, F3, A3, D4, E4, C2, G2, E3, B3, D4, E4, D5, D6, F2, C3, F3, A3, D4, Csharp6, C6, E4, B5, C2, G2, E3, B3, A5, D4, G5, E4};
-  // tempo for each note
-  int tempo[] ={1276, 300, 300, 300, 1276, 1276, 300, 300, 300, 1276, 1276, 600, 500, 500, 500, 1276, 600, 500, 500, 500, 400, 500, 500, 1276, 600, 300, 300, 300, 300, 600, 1276, 300, 300, 300, 300, 300, 300, 1276, 600, 300, 300, 500, 300, 500, 1276};
+  // notes for song (store in flash)
+  const int notes[] = {F2, F3, A3, D4, E4, C2, G3, B3, D4, E4, F2, C3, F3, A3, D4, E4, C2, G2, E3, B3, D4, E4, D5, D6, F2, C3, F3, A3, D4, Csharp6, C6, E4, B5, C2, G2, E3, B3, A5, D4, G5, E4};
+  // tempo for each note (store in flash)
+  const int tempo[] ={1276, 300, 300, 300, 1276, 1276, 300, 300, 300, 1276, 1276, 600, 500, 500, 500, 1276, 600, 500, 500, 500, 400, 500, 500, 1276, 600, 300, 300, 300, 300, 600, 1276, 300, 300, 300, 300, 300, 300, 1276, 600, 300, 300, 500, 300, 500, 1276};
   // play the song
   int noteAmt = sizeof(notes)/sizeof(notes[0]);
   playTune(notes,tempo,noteAmt);
@@ -63,10 +63,10 @@ void oot() { // Ocarina of Time Theme
 }
 
 void soh() { // Song of Healing
-  // notes for song
-  int notes[] = {F3, B4, C4, A4, C4, F4, C4, F3, B4, C4, A4, C4, F4, C4, F3, B4, C4, A4, E4, D4, C4, E4, E3, B3, B3, B3, F3, B4, C4, A4, C4, F4, C4, F3, B4, C4, A4, C4, F4, C4, F3, B4, C4};
-  // tempo for each note
-  int tempo[] = {500, 500, 400, 400, 400, 500, 400, 500, 500, 400, 400, 400, 500, 400, 500, 500, 400, 400, 400, 500, 500, 500, 600, 600, 600, 600, 600, 500, 500, 400, 400, 400, 500, 400, 500, 500, 400, 400, 400, 500, 400, 500, 500, 400}; 
+  // notes for song (store in flash)
+  const int notes[] = {F3, B4, C4, A4, C4, F4, C4, F3, B4, C4, A4, C4, F4, C4, F3, B4, C4, A4, E4, D4, C4, E4, E3, B3, B3, B3, F3, B4, C4, A4, C4, F4, C4, F3, B4, C4, A4, C4, F4, C4, F3, B4, C4};
+  // tempo for each note (store in flash)
+  const int tempo[] = {500, 500, 400, 400, 400, 500, 400, 500, 500, 400, 400, 400, 500, 400, 500, 500, 400, 400, 400, 500, 500, 500, 600, 600, 600, 600, 600, 500, 500, 400, 400, 400, 500, 400, 500, 500, 400, 400, 400, 500, 400, 500, 500, 400}; 
   // play the song
   int noteAmt = sizeof(notes)/sizeof(notes[0]);
   playTune(notes,tempo,noteAmt);
@@ -75,10 +75,10 @@ void soh() { // Song of Healing
 }
 
 void tp() { // Twilight Princess Theme
-  // notes for the song
-  int notes[] = {D3, E3, F3, A3, C4, E4, D3, E3, F3, A3, C4, E4, D3, E3, F3, A3, C4, E4, G4, E4, C4, A3, F3, E3, A4, F5, E5, C5, B4, A4, G4, B4, D6, A6, E6, D6};
-  // tempo for each note
-  int tempo[] = {400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 500, 400, 400, 400, 400, 400, 400, 400, 300, 300, 300, 300};
+  // notes for the song (store in flash)
+  const int notes[] = {D3, E3, F3, A3, C4, E4, D3, E3, F3, A3, C4, E4, D3, E3, F3, A3, C4, E4, G4, E4, C4, A3, F3, E3, A4, F5, E5, C5, B4, A4, G4, B4, D6, A6, E6, D6};
+  // tempo for each note (store in flash)
+  const int tempo[] = {400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 500, 400, 400, 400, 400, 400, 400, 400, 300, 300, 300, 300};
   // play the song
   int noteAmt = sizeof(notes)/sizeof(notes[0]);
   playTune(notes,tempo,noteAmt);
