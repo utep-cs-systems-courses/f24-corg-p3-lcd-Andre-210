@@ -16,41 +16,32 @@ void next_state(int state) {
     led_flash(3);
     leds_off();
     red_led_on();
-    // clearScreen(COLOR_RED);
-    drawFurEliseImage();
+    drawZeldasLullaby();
     zeldas_lullaby();
-    //main();
-    //buzzer_set_period(1000);
     leds_off();
     break;
   case 2:
     led_flash(3);
     leds_off();
     red_led_on();
-    //clearScreen(COLOR_ORANGE);
-    drawHappyBdayImage();
+    drawOOT();
     oot();
-    //buzzer_set_period(1000);
     leds_off();
     break;
   case 3:
     led_flash(3);
     leds_off();
     red_led_on();
-    //clearScreen(COLOR_BROWN);
-    drawMarioImage();
+    drawSOH();
     soh();
-    //buzzer_set_period(1000);
     leds_off();
     break;
   case 4:
     led_flash(3);
     leds_off();
     red_led_on();
-    //clearScreen(COLOR_GREEN);
-    drawRunaweyImage();
+    drawTP();
     tp();
-    //buzzer_set_period(1000);
     leds_off();
     break;
   default:
@@ -59,6 +50,5 @@ void next_state(int state) {
   }
   // turn on the green led to indicate that the MSP ready for the next step.
   green_led_on();
-  //lcd_init();
   clearScreen(COLOR_BLUE);
 }
