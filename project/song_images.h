@@ -3,7 +3,7 @@
 
 void drawDefault();
 //void drawZeldasLullaby();
-//void drawOOT();
+void drawHyruleShield();
 //void drawSOH();
 //void drawTP();
 
