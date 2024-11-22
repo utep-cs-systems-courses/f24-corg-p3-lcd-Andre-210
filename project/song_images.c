@@ -1,7 +1,7 @@
 #include "lcdutils.h"
 #include "lcddraw.h"
 
-void drawDefault(u_int colorBGR, const char *name) {
+void drawDefault(u_int colorBGR, char *name) {
   clearScreen(colorBGR);
   drawString5x7(10, 15, "The Legend of Zelda", COLOR_GOLD, colorBGR);
   // find the height and width of the screen
@@ -40,7 +40,7 @@ void drawDefault(u_int colorBGR, const char *name) {
   drawString5x7(35, height - 20, name, COLOR_WHITE, colorBGR);
 }
 
-void drawHarp(u_int x, u_int y, u_int size, u_int colorBGR, const char *name) {
+void drawHarp(u_int x, u_int y, u_int size, u_int colorBGR, char *name) {
   // Clear the screen with a background color
   clearScreen(colorBGR);
 u_int harpColor = COLOR_GOLD;   // Base color of the harp
@@ -82,7 +82,7 @@ u_int harpColor = COLOR_GOLD;   // Base color of the harp
   drawString5x7(20, screenHeight - 20, name, COLOR_GOLD, colorBGR);
 }
 
-void drawHyruleShieldWithSword(u_int x, u_int y, u_int size, u_int colorBGR, const char *name) {
+void drawHyruleShieldWithSword(u_int x, u_int y, u_int size, u_int colorBGR, char *name) {
   clearScreen(COLOR_DARK_GREEN);
   u_int shieldColor = COLOR_BLUE;    // Base color of the shield
   u_int trimColor = COLOR_GRAY;      // Shield trim color
@@ -126,7 +126,7 @@ void drawHyruleShieldWithSword(u_int x, u_int y, u_int size, u_int colorBGR, con
   drawHyruleShield(x, y, size, u_int colorBGR, name);
 }
 
-void drawHyruleShield(u_int x, u_int y, u_int size, u_int colorBGR, const char *name) {
+void drawHyruleShield(u_int x, u_int y, u_int size, u_int colorBGR, char *name) {
   u_int shieldColor = COLOR_BLUE;    // Base color of the shield
   u_int trimColor = COLOR_GRAY;      // Shield trim color
   u_int triforceColor = COLOR_GOLD;  // Triforce color
