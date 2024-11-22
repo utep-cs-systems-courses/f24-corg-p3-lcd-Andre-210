@@ -29,7 +29,7 @@ void next_state(int state) {
     red_led_on();
     //drawOOT();
     //drawDefault(COLOR_TURQUOISE, "Ocarina of Time");
-    drawHyruleShieldWithSword(64, 40, 40); // Draw the Hyrule Shield at center
+    drawHyruleShieldWithSword(64, 50, 40); // Draw the Hyrule Shield at center
     oot();
     //tp();
     leds_off();
