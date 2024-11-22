@@ -156,19 +156,42 @@ void oot() { // Ocarina of Time Theme
     buzzer_set_period(0); // Turn off buzzer
 }
 
-//void soh() { // Song of Healing
-  // notes for song (store in flash)
-  //const int notes[] = {F3, B4, C4, A4, C4, F4, C4, F3, B4, C4, A4, C4, F4, C4, F3, B4, C4, A4, E4, D4, C4, E4, E3, B3, F3, B4, C4, A4, C4, F4, C4, F3, B4, C4, A4, C4, F4, C4, F3, B4, C4};
-  // tempo for each note (store in flash)
-  //const int tempo[] = {800, 800, 600, 600, 600, 800, 600, 800, 800, 600, 600, 600, 800, 800, 800, 800, 600, 600, 600, 800, 800, 800, 900, 900, 900, 800, 800, 600, 600, 600, 800, 600, 800, 800, 600, 600, 600, 800, 600, 800, 800, 600}; 
-  //const int notes[] = {F3, B4, C4, A4, C4, F4, C4, F3, B4, C4, A4, C4, F4, C4, F3, B4, C4, A4, E4, D4, C4, E4, E3};
-//const int tempo[] = {800, 800, 600, 600, 600, 800, 600, 800, 800, 600, 600, 600, 800, 800, 800, 800, 600, 600, 600, 800, 800, 800, 900};
-  // play the song
-  //int noteAmt = sizeof(notes)/sizeof(notes[0]);
-  //playTune(notes,tempo,noteAmt);
-  // reset the buzzer state
-  //buzzer_set_period(0); // CHANGED FROM bk TO 0
-//}
+void soh() { // Song of Healing
+    // Patterns for unique segments
+    const uint8_t pattern1_notes[] = {NOTE_F3, NOTE_B4, NOTE_C4, NOTE_A4, NOTE_C4, NOTE_F4, NOTE_C4};
+    const uint8_t pattern2_notes[] = {NOTE_F3, NOTE_B4, NOTE_C4, NOTE_A4, NOTE_C4, NOTE_F4, NOTE_C4};
+    const uint8_t pattern3_notes[] = {NOTE_F3, NOTE_B4, NOTE_C4, NOTE_A4, NOTE_E4, NOTE_D4, NOTE_C4, NOTE_E4};
+    const uint8_t pattern4_notes[] = {NOTE_E3, NOTE_B3};
+
+    const uint8_t pattern1_tempo[] = {8, 8, 6, 6, 6, 8, 6};
+    const uint8_t pattern2_tempo[] = {8, 8, 6, 6, 6, 8, 8};
+    const uint8_t pattern3_tempo[] = {8, 8, 6, 6, 6, 8, 8, 9};
+    const uint8_t pattern4_tempo[] = {9, 9};
+
+    // Sequence of patterns to play
+    const uint8_t sequence[] = {1, 2, 1, 3, 4};
+
+    // Play each pattern in sequence
+    for (int i = 0; i < sizeof(sequence) / sizeof(sequence[0]); i++) {
+        switch (sequence[i]) {
+            case 1:
+                playTune(pattern1_notes, pattern1_tempo, sizeof(pattern1_notes) / sizeof(pattern1_notes[0]));
+                break;
+            case 2:
+                playTune(pattern2_notes, pattern2_tempo, sizeof(pattern2_notes) / sizeof(pattern2_notes[0]));
+                break;
+            case 3:
+                playTune(pattern3_notes, pattern3_tempo, sizeof(pattern3_notes) / sizeof(pattern3_notes[0]));
+                break;
+            case 4:
+                playTune(pattern4_notes, pattern4_tempo, sizeof(pattern4_notes) / sizeof(pattern4_notes[0]));
+                break;
+        }
+    }
+
+    // Reset the buzzer state
+    buzzer_set_period(0); // Turn off buzzer
+}
 
 void tp() { // Twilight Princess Theme
      // Patterns for unique segments (encoded as IDs)
