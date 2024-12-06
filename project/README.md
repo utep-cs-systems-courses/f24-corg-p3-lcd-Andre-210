@@ -10,3 +10,13 @@ Switch 2: ***The Legend of Zelda: Ocarina of Time Main Theme***
 Switch 3: ***Song of Healing***
 
 Switch 4: ***The Legend of Zelda: Twilight Princess Main Theme***
+
+## How to load the project?
+
+This project can be loaded onto an MSP430 by running the following command on emacs withing the project dir:
+make load
+
+To clean the object files run:
+make clean
+
+### May have to unplu and replug the MSP430 after loading the project.
