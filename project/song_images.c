@@ -41,70 +41,70 @@ void drawDefault(u_int colorBGR, char *name) {
 }
 
 void drawHarp(u_int x, u_int y, u_int size, u_int colorBGR, char *name) {
-  // Clear the screen with a background color
+  // clear the screen with a background color
   clearScreen(colorBGR);
-u_int harpColor = COLOR_GOLD;   // Base color of the harp
-  u_int stringColor = COLOR_WHITE; // Strings of the harp
+  u_int harpColor = COLOR_GOLD;                // base color of the harp
+  u_int stringColor = COLOR_WHITE;             // strings of the harp
 
-  // Draw the base of the harp (semi-circle arc)
+  // draw the base of the harp (semi-circle arc)
   for (int row = 0; row < size / 2; row++) {
     for (int col = -row; col <= row; col++) {
       drawPixel(x + col, y + row, harpColor);
     }
   }
 
-  // Draw the left and right decorative arms
+  // draw the left and right decorative arms
   for (int row = 0; row < size / 2; row++) {
     for (int col = -size / 8; col <= size / 8; col++) {
-      // Left arm
+      // left arm
       drawPixel(x - size / 2 + col, y + row, harpColor);
-      // Right arm
+      // right arm
       drawPixel(x + size / 2 + col, y + row, harpColor);
     }
   }
 
-  // Draw the harp strings
+  // draw the harp strings
   int stringSpacing = size / 10;
-  for (int i = 0; i <= 6; i++) { // Draw 7 strings
+  for (int i = 0; i <= 6; i++) {                 // draw 7 strings
     for (int row = 0; row < size / 2; row++) {
       drawPixel(x - size / 3 + i * stringSpacing, y + row, stringColor);
     }
   }
 
-  // Add decorative details (small arcs for top and bottom edges)
+  // add decorative details (small arcs for top and bottom edges)
   for (int row = size / 2 - 3; row < size / 2; row++) {
     for (int col = -row / 2; col <= row / 2; col++) {
-      drawPixel(x + col, y + row + size / 2, harpColor); // Bottom arc
+      drawPixel(x + col, y + row + size / 2, harpColor);      // bottom arc
     }
   }
   
-  // Draw text for Zelda's Lullaby
+  // draw text for Zelda's Lullaby
   drawString5x7(20, screenHeight - 20, name, COLOR_GOLD, colorBGR);
 }
 
 void drawHyruleShieldWithSword(u_int x, u_int y, u_int size, u_int colorBGR, char *name) {
   clearScreen(COLOR_DARK_GREEN);
-  u_int shieldColor = COLOR_BLUE;    // Base color of the shield
-  u_int trimColor = COLOR_GRAY;      // Shield trim color
-  u_int triforceColor = COLOR_GOLD;  // Triforce color
-  u_int crestColor = COLOR_RED;      // Crest color
-  u_int borderColor = COLOR_BLACK;   // Border color
-  u_int swordBladeColor = COLOR_GRAY; // Sword blade color
-  u_int swordHiltColor = COLOR_BLUE; // Sword hilt color
-  u_int swordAccentColor = COLOR_YELLOW; // Sword accent color
+  u_int shieldColor = COLOR_BLUE;         // base color of the shield
+  u_int trimColor = COLOR_GRAY;           // shield trim color
+  u_int triforceColor = COLOR_GOLD;       // triforce color
+  u_int crestColor = COLOR_RED;           // crest color
+  u_int borderColor = COLOR_BLACK;        // border color
+  u_int swordBladeColor = COLOR_GRAY;     // sword blade color
+  u_int swordHiltColor = COLOR_BLUE;      // sword hilt color
+  u_int swordAccentColor = COLOR_YELLOW;  // sword accent color
 
-  // Draw the sword (straight vertical line through the shield)
-  int swordWidth = size / 10; // Thickness of the sword blade
-  int swordHeight = size * 2; // Height of the sword blade
+  // draw the sword (straight vertical line through the shield)
+  int swordWidth = size / 10;       // thickness of the sword blade
+  int swordHeight = size * 2;       // height of the sword blade
 
-  // Sword blade
+  // sword blade
   for (int row = -swordHeight / 2; row < swordHeight / 2; row++) {
     for (int col = -swordWidth; col <= swordWidth; col++) {
       drawPixel(x + col, y + row, swordBladeColor);
     }
   }
 
-  // Sword hilt (horizontal part of the sword)
+  // sword hilt (horizontal part of the sword)
   int hiltWidth = size / 2;
   int hiltThickness = size / 8;
 
@@ -114,7 +114,7 @@ void drawHyruleShieldWithSword(u_int x, u_int y, u_int size, u_int colorBGR, cha
     }
   }
 
-  // Sword hilt accent (yellow part in the center)
+  // sword hilt accent (yellow part in the center)
   int accentWidth = hiltWidth / 3;
   for (int row = -hiltThickness / 2; row <= hiltThickness / 2; row++) {
     for (int col = -accentWidth; col <= accentWidth; col++) {
@@ -122,34 +122,34 @@ void drawHyruleShieldWithSword(u_int x, u_int y, u_int size, u_int colorBGR, cha
     }
   }
 
-  // Now draw the shield on top of the sword
+  // draw the shield on top of the sword
   drawHyruleShield(x, y, size, colorBGR, name);
 }
 
 void drawHyruleShield(u_int x, u_int y, u_int size, u_int colorBGR, char *name) {
-  u_int shieldColor = COLOR_BLUE;    // Base color of the shield
-  u_int trimColor = COLOR_GRAY;      // Shield trim color
-  u_int triforceColor = COLOR_GOLD;  // Triforce color
-  u_int crestColor = COLOR_RED;      // Crest color
-  u_int borderColor = COLOR_BLACK;   // Border color
+  u_int shieldColor = COLOR_BLUE;        // base color of the shield
+  u_int trimColor = COLOR_GRAY;          // shield trim color
+  u_int triforceColor = COLOR_GOLD;      // triforce color
+  u_int crestColor = COLOR_RED;          // crest color
+  u_int borderColor = COLOR_BLACK;       // border color
 
-  // Draw the rounded shield border
+  // draw the rounded shield border
   for (int row = 0; row < size; row++) {
-    int width = size - row / 2;  // Gradually reduce width for rounded edges
+    int width = size - row / 2;           // gradually reduce width for rounded edges
     for (int col = -width; col <= width; col++) {
       drawPixel(x + col, y + row, borderColor);
     }
   }
 
-  // Draw the blue inner shield
+  // draw the blue inner shield
   for (int row = 1; row < size - 2; row++) {
-    int width = size - row / 2 - 2;  // Slightly smaller for inner shape
+    int width = size - row / 2 - 2;        // slightly smaller for inner shape
     for (int col = -width; col <= width; col++) {
       drawPixel(x + col, y + row, shieldColor);
     }
   }
 
-  // Draw the triforce emblem
+  // draw the triforce emblem
   int triforceHeight = size / 5;
   int triforceBaseRow = y + size / 4;
   int triforceBaseCol = x;
@@ -160,29 +160,29 @@ void drawHyruleShield(u_int x, u_int y, u_int size, u_int colorBGR, char *name) 
     }
   }
 
-  // Draw the red crest below the triforce
+  // draw the red crest below the triforce
   int crestHeight = size / 6;
   int crestBaseRow = triforceBaseRow + triforceHeight + 2;
 
   for (int row = 0; row < crestHeight; row++) {
-    for (int col = -row * 3 / 2; col <= row * 3 / 2; col++) {  // Wider crest
+    for (int col = -row * 3 / 2; col <= row * 3 / 2; col++) {     // wider crest
       drawPixel(x + col, crestBaseRow + row, crestColor);
     }
   }
 
-  // Add decorative gray details around the crest
+  // add decorative gray details around the crest
   int detailRow = crestBaseRow - 3;
   int detailSize = crestHeight / 2;
   for (int row = 0; row < detailSize; row++) {
     for (int col = -row; col <= row; col++) {
-      drawPixel(x - size / 4 + col, detailRow + row, trimColor); // Left detail
-      drawPixel(x + size / 4 + col, detailRow + row, trimColor); // Right detail
+      drawPixel(x - size / 4 + col, detailRow + row, trimColor);      // left detail
+      drawPixel(x + size / 4 + col, detailRow + row, trimColor);      // right detail
     }
   }
 
-  // Draw bottom point of the shield (rounded)
+  // draw bottom point of the shield (rounded)
   for (int row = size - 3; row < size; row++) {
-    int width = size / 8;  // Bottom point width
+    int width = size / 8;                    // bottom point width
     for (int col = -width; col <= width; col++) {
       drawPixel(x + col, y + row, trimColor);
     }
