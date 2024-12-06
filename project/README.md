@@ -1,13 +1,12 @@
 # arch1-project3-lcd
 
-This toy can play snake, the snake can be moved by the buttons on the LCD,
-will expand, change colors, and make a noise when eating 'food'.
+This is a music player for ***The Legend of Zelda***. This toy can play 4 different songs using the 4 switches. The songs are: 
 
 
-Switch 1: go left
+Switch 1: ***Zelda's Lullaby***
 
-Switch 2: go up
+Switch 2: ***The Legend of Zelda: Ocarina of Time Main Theme***
 
-Switch 3.go down
+Switch 3: ***Song of Healing***
 
-Switch 4.go right
+Switch 4: ***The Legend of Zelda: Twilight Princess Main Theme***
