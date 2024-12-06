@@ -19,4 +19,4 @@ make load
 To clean the object files run:
 make clean
 
-### May have to unplu and replug the MSP430 after loading the project.
+### May have to unplug and replug the MSP430 after loading the project.
