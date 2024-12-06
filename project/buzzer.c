@@ -4,54 +4,12 @@
 #include "notes.h"
 #include "statemachines.h"
 #include "led.h"
-
 #include <stdint.h>
 
-const int frequencies[] = {
-  0,
-  65,
-  73,
-  82,
-  87,
-  98,
-  110,
-  123,
-  131,
-  146,
-  165,
-  175,
-  196,
-  220,
-  247,
-  262,
-  294,
-  330,
-  349,
-  370,
-  392,
-  440,
-  494,
-  523,
-  587,
-  659,
-  698,
-  740,
-  784,
-  800,
-  988,
-  1047,
-  1109,
-  1175,
-  1245,
-  1319,
-  1397,
-  1480,
-  1568,
-  1661,
-  1760,
-  1865,
-  1976
-};
+// all frequencies and base tempo
+const int frequencies[] = {0,65,73,82,87,98,110,123,131,146,165,175,196,220,247,
+                           262,294,330,349,370, 392,440,494,523,587,659,698,740,784,800,
+                           988,1047,1109,1175,1245,1319,1397,1480,1568,1661, 1760,1865,1976};
 const int baseTempo = 100;
 
 void buzzer_init() {
@@ -89,17 +47,17 @@ void playTune(const uint8_t *notes, const uint8_t *tempo, int noteAmt) {
 }
 
 void zeldas_lullaby() { // Zelda's Lullaby
-  // Patterns for unique segments
+  // patterns for unique segments
     const uint8_t pattern1_notes[] = {NOTE_C3, NOTE_G3, NOTE_E4, NOTE_C3, NOTE_A3, NOTE_Fsharp4};
     const uint8_t pattern2_notes[] = {NOTE_C3, NOTE_B4, NOTE_G3};
 
     const uint8_t pattern1_tempo[] = {5, 5, 5, 5, 5, 5};
     const uint8_t pattern2_tempo[] = {7, 3, 5};
 
-    // Sequence of patterns to play
+    // sequence of patterns to play
     const uint8_t sequence[] = {1, 1, 2};
 
-    // Play each pattern in sequence
+    // play each pattern in sequence
     for (int i = 0; i < sizeof(sequence) / sizeof(sequence[0]); i++) {
         switch (sequence[i]) {
             case 1:
@@ -111,11 +69,11 @@ void zeldas_lullaby() { // Zelda's Lullaby
         }
     }
 
-    // Reset the buzzer state
-    buzzer_set_period(0); // Turn off buzzer
+    // reset the buzzer state
+    buzzer_set_period(0); // turn off buzzer
 }
 void oot() { // Ocarina of Time Theme
-  // Patterns for unique segments
+  // patterns for unique segments
     const uint8_t pattern1_notes[] = {NOTE_F2, NOTE_F3, NOTE_A3, NOTE_D4, NOTE_E4};
     const uint8_t pattern2_notes[] = {NOTE_C2, NOTE_G3, NOTE_B3, NOTE_D4, NOTE_E4};
     const uint8_t pattern3_notes[] = {NOTE_C3, NOTE_F3, NOTE_A3, NOTE_D4, NOTE_E4};
@@ -128,10 +86,10 @@ void oot() { // Ocarina of Time Theme
     const uint8_t pattern4_tempo[] = {6, 5, 5, 5, 4};
     const uint8_t pattern5_tempo[] = {5, 13};
 
-    // Sequence of patterns to play
+    // sequence of patterns to play
     const uint8_t sequence[] = {1, 2, 3, 1, 4, 5, 3, 1};
 
-    // Play each pattern in sequence
+    // play each pattern in sequence
     for (int i = 0; i < sizeof(sequence) / sizeof(sequence[0]); i++) {
         switch (sequence[i]) {
             case 1:
@@ -152,12 +110,12 @@ void oot() { // Ocarina of Time Theme
         }
     }
 
-    // Reset the buzzer state
-    buzzer_set_period(0); // Turn off buzzer
+    // reset the buzzer state
+    buzzer_set_period(0); // turn off buzzer
 }
 
 void soh() { // Song of Healing
-    // Patterns for unique segments
+    // patterns for unique segments
     const uint8_t pattern1_notes[] = {NOTE_F3, NOTE_B4, NOTE_C4, NOTE_A4, NOTE_C4, NOTE_F4, NOTE_C4};
     const uint8_t pattern2_notes[] = {NOTE_F3, NOTE_B4, NOTE_C4, NOTE_A4, NOTE_C4, NOTE_F4, NOTE_C4};
     const uint8_t pattern3_notes[] = {NOTE_F3, NOTE_B4, NOTE_C4, NOTE_A4, NOTE_E4, NOTE_D4, NOTE_C4, NOTE_E4};
@@ -168,10 +126,10 @@ void soh() { // Song of Healing
     const uint8_t pattern3_tempo[] = {8, 8, 6, 6, 6, 8, 8, 9};
     const uint8_t pattern4_tempo[] = {9, 9};
 
-    // Sequence of patterns to play
+    // sequence of patterns to play
     const uint8_t sequence[] = {1, 2, 1, 3, 4};
 
-    // Play each pattern in sequence
+    // play each pattern in sequence
     for (int i = 0; i < sizeof(sequence) / sizeof(sequence[0]); i++) {
         switch (sequence[i]) {
             case 1:
@@ -189,12 +147,12 @@ void soh() { // Song of Healing
         }
     }
 
-    // Reset the buzzer state
-    buzzer_set_period(0); // Turn off buzzer
+    // reset the buzzer state
+    buzzer_set_period(0); // turn off buzzer
 }
 
 void tp() { // Twilight Princess Theme
-     // Patterns for unique segments (encoded as IDs)
+     // patterns for unique segments (encoded as IDs)
     const uint8_t pattern1_notes[] = {NOTE_D3, NOTE_E3, NOTE_F3, NOTE_A3, NOTE_C4, NOTE_E4};
     const uint8_t pattern2_notes[] = {NOTE_G4, NOTE_E4, NOTE_C4, NOTE_A3, NOTE_F3, NOTE_E3};
     const uint8_t pattern3_notes[] = {NOTE_A4, NOTE_F5, NOTE_E5, NOTE_C5, NOTE_B4, NOTE_A4};
@@ -205,10 +163,10 @@ void tp() { // Twilight Princess Theme
     const uint8_t pattern3_tempo[] = {5, 4, 4, 4, 4, 4};
     const uint8_t pattern4_tempo[] = {3, 3, 3, 3, 3, 3};
 
-    // Sequence of patterns to play
+    // sequence of patterns to play
     const uint8_t sequence[] = {1, 1, 1, 2, 2, 3, 4};
 
-    // Play each pattern in sequence
+    // play each pattern in sequence
     for (int i = 0; i < sizeof(sequence) / sizeof(sequence[0]); i++) {
         switch (sequence[i]) {
             case 1:
@@ -226,6 +184,6 @@ void tp() { // Twilight Princess Theme
         }
     }
 
-    // Reset the buzzer state
-    buzzer_set_period(0); // Turn off buzzer
+    // reset the buzzer state
+    buzzer_set_period(0); // turn off buzzer
 }
