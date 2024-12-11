@@ -22,6 +22,8 @@ libLcd.a: font-11x16.o font-5x7.o font-8x12.o lcdutils.o lcddraw.o song_images.o
 lcddraw.o: lcddraw.c lcddraw.h lcdutils.h
 lcdutils.o: lcdutils.c lcdutils.h
 song_images.o: song_images.c song_images.h lcddraw.c lcddraw.o lcdutils.c lcdutils.h
+wdt_handlers.o: wdt_handlers.s
+	${AS} -mmcu=${CPU} -o $@ $<
 
 install: libLcd.a
 	mkdir -p ../h ../lib
